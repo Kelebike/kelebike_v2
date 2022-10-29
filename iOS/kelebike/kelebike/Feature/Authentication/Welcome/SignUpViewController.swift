@@ -18,14 +18,13 @@ class SignUpViewController: UIViewController {
     
 
     override func viewDidLoad() {
+        password.isSecureTextEntry.toggle()
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
     
 
     @IBAction func signUpTapped(_ sender: Any) {
-        
         if(email.text?.isEmpty == true ){
             print("email empty")
             return
@@ -62,14 +61,38 @@ class SignUpViewController: UIViewController {
         Auth.auth().createUser(withEmail: email.text!, password: password.text!){
             (authResult, error) in
             guard let user = authResult?.user, error == nil else{
-                print("Error!!? \(error?.localizedDescription)")
+                print("Error!!? \(String(describing: error?.localizedDescription))")
                 return
             }
+            user.sendEmailVerification()
             
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "homepage")
-            vc.modalPresentationStyle = .overFullScreen
-            self.present(vc, animated: true)
+            // Create new Alert
+            var dialogMessage = UIAlertController(title: "Confirm", message: "Verification e-mail has been sent to your e-mail adress. Please check your inbox.", preferredStyle: .alert)
+            
+            // Create OK button with action handler
+            let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+                print("Ok button tapped")
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "login")
+                vc.modalPresentationStyle = .overFullScreen
+                self.present(vc, animated: true)
+                
+             })
+            
+            //Add OK button to a dialog message
+            dialogMessage.addAction(ok)
+            // Present Alert to
+            self.present(dialogMessage, animated: true, completion: nil)
+            
+                
+                //view changer
+            /*
+             let storyboard = UIStoryboard(name: "Main", bundle: nil)
+             let vc = storyboard.instantiateViewController(withIdentifier: "homepage")
+             vc.modalPresentationStyle = .overFullScreen
+             self.present(vc, animated: true)
+             */
+
         
         }
     }

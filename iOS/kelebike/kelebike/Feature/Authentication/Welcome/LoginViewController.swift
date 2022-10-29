@@ -16,6 +16,7 @@ class LoginViewController: UIViewController {
     
     
     override func viewDidLoad() {
+        password.isSecureTextEntry.toggle()
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
