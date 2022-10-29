@@ -21,7 +21,23 @@ class SignUpViewController: UIViewController {
         password.isSecureTextEntry.toggle()
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        
+        //Looks for single or multiple taps.
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+
+        //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
+        tap.cancelsTouchesInView = false
+
+        view.addGestureRecognizer(tap)
     }
+    
+    //Calls this function when the tap is recognized.
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+    
     
 
     @IBAction func signUpTapped(_ sender: Any) {
@@ -67,7 +83,7 @@ class SignUpViewController: UIViewController {
             user.sendEmailVerification()
             
             // Create new Alert
-            var dialogMessage = UIAlertController(title: "Confirm", message: "Verification e-mail has been sent to your e-mail adress. Please check your inbox.", preferredStyle: .alert)
+            let dialogMessage = UIAlertController(title: "Verification", message: "Verification email has been sent to your email adress. Please check your inbox.", preferredStyle: .alert)
             
             // Create OK button with action handler
             let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
