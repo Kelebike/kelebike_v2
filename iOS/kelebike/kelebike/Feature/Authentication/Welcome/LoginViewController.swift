@@ -1,8 +1,8 @@
 //
 //  LoginViewController.swift
-//  Kelebike_iOS
+//  kelebike
 //
-//  Created by Berkay Baygut on 28.10.2022.
+//  Created by Berkay Baygut on 29.10.2022.
 //
 
 import UIKit
@@ -14,23 +14,31 @@ class LoginViewController: UIViewController {
     
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func loginTapped(_ sender: Any) {
-        
-        
+
+    @IBAction func forgotPasswordTapped(_ sender: Any) {
+        print("forgot password tappped")
     }
     
-    @IBAction func createAccountTapped(_ sender: Any) {
+    
+    
+    @IBAction func loginTapped(_ sender: Any) {
+        print("login tapped")
+    }
+    
+    
+    @IBAction func dontYouHaveAnAccountTapped(_ sender: Any) {
+        print("dont you have an account tapped")
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(identifier: "signUp")
+        let vc = storyboard.instantiateViewController(withIdentifier: "signUp")
         vc.modalPresentationStyle = .overFullScreen
         present(vc, animated: true)
         
     }
-    
 }

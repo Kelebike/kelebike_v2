@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.swift
-//  Kelebike_iOS
+//  kelebike
 //
-//  Created by Berkay Baygut on 28.10.2022.
+//  Created by Berkay Baygut on 29.10.2022.
 //
 
 import UIKit

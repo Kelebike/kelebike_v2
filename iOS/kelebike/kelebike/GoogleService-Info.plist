@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>143823499442-8plk77ou89cr18ltn4d3b4ucqb0i5ici.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.143823499442-8plk77ou89cr18ltn4d3b4ucqb0i5ici</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAx65h_XveVqy1uLXZ7yGA9V1Xu918wlu8</string>
+	<key>GCM_SENDER_ID</key>
+	<string>143823499442</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>bisquit.kelebikev2</string>
+	<key>PROJECT_ID</key>
+	<string>kelebike-v2</string>
+	<key>STORAGE_BUCKET</key>
+	<string>kelebike-v2.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:143823499442:ios:680692c0a45f57eb6f59ab</string>
+</dict>
+</plist>

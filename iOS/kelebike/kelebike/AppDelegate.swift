@@ -1,11 +1,12 @@
 //
 //  AppDelegate.swift
-//  Kelebike_iOS
+//  kelebike
 //
-//  Created by Berkay Baygut on 28.10.2022.
+//  Created by Berkay Baygut on 29.10.2022.
 //
 
 import UIKit
+import FirebaseCore
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        FirebaseApp.configure()
         return true
     }
 
