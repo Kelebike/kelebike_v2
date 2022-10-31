@@ -63,10 +63,7 @@ class LoginViewController: UIViewController {
     
     @IBAction func dontYouHaveAnAccountTapped(_ sender: Any) {
         print("dont you have an account tapped")
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "signUp")
-        vc.modalPresentationStyle = .overFullScreen
-        present(vc, animated: true)
         
+        performSegue(withIdentifier: "toSignup", sender: nil)
     }
 }

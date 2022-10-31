@@ -75,10 +75,8 @@ class SignUpViewController: UIViewController {
     
     @IBAction func youAlreadyHaveAnAccountTapped(_ sender: Any) {
         print(" you already  have an account tapped")
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "login")
-        vc.modalPresentationStyle = .overFullScreen
-        present(vc, animated: true)
+
+        performSegue(withIdentifier: "toLogin", sender: nil)
     }
     
     func signUp(  ){
