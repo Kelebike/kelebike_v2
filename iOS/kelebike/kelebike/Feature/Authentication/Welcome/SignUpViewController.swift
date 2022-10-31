@@ -72,13 +72,6 @@ class SignUpViewController: UIViewController {
         }
     }
     
-    
-    @IBAction func youAlreadyHaveAnAccountTapped(_ sender: Any) {
-        print(" you already  have an account tapped")
-
-        performSegue(withIdentifier: "toLogin", sender: nil)
-    }
-    
     func signUp(  ){
         print("signUp button tapped")
         Auth.auth().createUser(withEmail: email.text!, password: password.text!){
@@ -106,17 +99,6 @@ class SignUpViewController: UIViewController {
             dialogMessage.addAction(ok)
             // Present Alert to
             self.present(dialogMessage, animated: true, completion: nil)
-            
-                
-                //view changer
-            /*
-             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-             let vc = storyboard.instantiateViewController(withIdentifier: "homepage")
-             vc.modalPresentationStyle = .overFullScreen
-             self.present(vc, animated: true)
-             */
-
-        
         }
     }
     
