@@ -11,15 +11,13 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var showHideIcon: UIButton!
     
-    
-    
+    var passwordVisible: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        password.isSecureTextEntry.toggle()
-        
+                
         /*
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = view.bounds
@@ -38,8 +36,20 @@ class LoginViewController: UIViewController {
         tap.cancelsTouchesInView = false
 
         view.addGestureRecognizer(tap)
-
+    }
+    
+    // button for showing or hiding the password
+    @IBAction func showHideButton(_ sender: Any) {
+        password.isSecureTextEntry.toggle()
         
+        if(passwordVisible){
+            showHideIcon.setImage(UIImage(systemName: "eye.slash.fill", withConfiguration: UIImage.SymbolConfiguration(scale: .medium)), for: .normal)
+            passwordVisible = false
+        }
+        else{
+            showHideIcon.setImage(UIImage(systemName: "eye.fill", withConfiguration: UIImage.SymbolConfiguration(scale: .medium)), for: .normal)
+            passwordVisible = true
+        }        
     }
     
     //Calls this function when the tap is recognized.
@@ -63,6 +73,9 @@ class LoginViewController: UIViewController {
     
     @IBAction func dontYouHaveAnAccountTapped(_ sender: Any) {
         print("dont you have an account tapped")
+        
+        email.text! = ""
+        password.text! = ""
         
         performSegue(withIdentifier: "toSignup", sender: nil)
     }

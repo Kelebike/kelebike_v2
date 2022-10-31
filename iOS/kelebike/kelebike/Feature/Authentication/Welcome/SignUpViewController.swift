@@ -13,14 +13,13 @@ class SignUpViewController: UIViewController {
     
     
     @IBOutlet weak var email: UITextField!
-    
     @IBOutlet weak var password: UITextField!
-    
     @IBOutlet weak var passwordCheck: UITextField!
+    @IBOutlet weak var showHideIcon: UIButton!
+    
+    var passwordVisible: Bool = true
     
     override func viewDidLoad() {
-        password.isSecureTextEntry.toggle()
-        passwordCheck.isSecureTextEntry.toggle()
         
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -35,13 +34,26 @@ class SignUpViewController: UIViewController {
         view.addGestureRecognizer(tap)
     }
     
+    // button for showing or hiding the password
+    @IBAction func showHideButton(_ sender: Any) {
+        password.isSecureTextEntry.toggle()
+        passwordCheck.isSecureTextEntry.toggle()
+        
+        if(passwordVisible){
+            showHideIcon.setImage(UIImage(systemName: "eye.slash.fill", withConfiguration: UIImage.SymbolConfiguration(scale: .medium)), for: .normal)
+            passwordVisible = false
+        }
+        else{
+            showHideIcon.setImage(UIImage(systemName: "eye.fill", withConfiguration: UIImage.SymbolConfiguration(scale: .medium)), for: .normal)
+            passwordVisible = true
+        }
+    }
+    
     //Calls this function when the tap is recognized.
     @objc func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
-    }
-    
-    
+    }    
 
     @IBAction func signUpTapped(_ sender: Any) {
         if(email.text?.isEmpty == true ){
