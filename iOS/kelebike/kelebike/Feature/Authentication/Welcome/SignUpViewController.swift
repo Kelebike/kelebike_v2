@@ -16,9 +16,12 @@ class SignUpViewController: UIViewController {
     
     @IBOutlet weak var password: UITextField!
     
-
+    @IBOutlet weak var passwordCheck: UITextField!
+    
     override func viewDidLoad() {
         password.isSecureTextEntry.toggle()
+        passwordCheck.isSecureTextEntry.toggle()
+        
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
@@ -49,6 +52,13 @@ class SignUpViewController: UIViewController {
             print("password empty")
             return
         }
+        else if(password.text!.count <= 6){
+            print("password to short")
+        }
+        else if(password.text! != passwordCheck.text!){
+            print("passwords don't macth")
+            return
+        }
         else {
             if(email.text?.hasSuffix("@gtu.edu.tr") == true)
             {
@@ -60,7 +70,6 @@ class SignUpViewController: UIViewController {
                 print("not a gtu mail")
             }
         }
-
     }
     
     
