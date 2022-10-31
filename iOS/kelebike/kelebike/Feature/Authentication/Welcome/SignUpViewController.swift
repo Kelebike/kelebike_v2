@@ -52,7 +52,7 @@ class SignUpViewController: UIViewController {
             print("password empty")
             return
         }
-        else if(password.text!.count <= 6){
+        else if(password.text!.count < 6){
             print("password to short")
         }
         else if(password.text! != passwordCheck.text!){
