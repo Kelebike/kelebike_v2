@@ -12,12 +12,14 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var showHideIcon: UIButton!
+    @IBOutlet weak var gifView: UIImageView!
     
     var passwordVisible: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+               
+        gifView.loadGif(name: "login")
         /*
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = view.bounds
@@ -28,15 +30,26 @@ class LoginViewController: UIViewController {
         view.layer.addSublayer(gradientLayer)
         */
         
-        
-        //Looks for single or multiple taps.
-        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
-
-        //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
-        tap.cancelsTouchesInView = false
-
-        view.addGestureRecognizer(tap)
     }
+
+    @IBAction func forgotPasswordTapped(_ sender: Any) {
+        print("forgot password tappped")
+    }
+    
+    @IBAction func loginTapped(_ sender: Any) {
+        print("login tapped")
+        
+    }    
+    
+    @IBAction func dontYouHaveAnAccountTapped(_ sender: Any) {
+        print("dont you have an account tapped")
+        
+        email.text! = ""
+        password.text! = ""
+        
+        performSegue(withIdentifier: "toSignup", sender: nil)
+    }
+    
     
     // button for showing or hiding the password
     @IBAction func showHideButton(_ sender: Any) {
@@ -49,34 +62,15 @@ class LoginViewController: UIViewController {
         else{
             showHideIcon.setImage(UIImage(systemName: "eye.fill", withConfiguration: UIImage.SymbolConfiguration(scale: .medium)), for: .normal)
             passwordVisible = true
-        }        
+        }
     }
     
-    //Calls this function when the tap is recognized.
-    @objc func dismissKeyboard() {
-        //Causes the view (or one of its embedded text fields) to resign the first responder status.
-        view.endEditing(true)
+    // done button func to close the email keyboard
+    @IBAction func doneMail(_ sender: UITextField) {
+        sender.resignFirstResponder()
     }
-    
-
-    @IBAction func forgotPasswordTapped(_ sender: Any) {
-        print("forgot password tappped")
-    }
-    
-    
-    
-    @IBAction func loginTapped(_ sender: Any) {
-        print("login tapped")
-        
-    }
-    
-    
-    @IBAction func dontYouHaveAnAccountTapped(_ sender: Any) {
-        print("dont you have an account tapped")
-        
-        email.text! = ""
-        password.text! = ""
-        
-        performSegue(withIdentifier: "toSignup", sender: nil)
+    // done button func to close the password keyboard
+    @IBAction func donePassword(_ sender: UITextField) {
+        sender.resignFirstResponder()
     }
 }

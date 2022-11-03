@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		41315718291338A0004C2FC2 /* SwiftGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41315717291338A0004C2FC2 /* SwiftGif.swift */; };
+		41E30C1E291346A2000014BF /* login.gif in Resources */ = {isa = PBXBuildFile; fileRef = 41E30C1D291346A1000014BF /* login.gif */; };
+		41E30C222913470F000014BF /* signup.gif in Resources */ = {isa = PBXBuildFile; fileRef = 41E30C212913470F000014BF /* signup.gif */; };
 		B16D80C7290D222A009EE362 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16D80C6290D222A009EE362 /* AppDelegate.swift */; };
 		B16D80C9290D222A009EE362 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16D80C8290D222A009EE362 /* SceneDelegate.swift */; };
 		B16D80CE290D222A009EE362 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B16D80CC290D222A009EE362 /* Main.storyboard */; };
@@ -45,6 +48,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		41315717291338A0004C2FC2 /* SwiftGif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftGif.swift; sourceTree = "<group>"; };
+		41E30C1D291346A1000014BF /* login.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = login.gif; sourceTree = "<group>"; };
+		41E30C212913470F000014BF /* signup.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = signup.gif; sourceTree = "<group>"; };
 		B16D80C3290D222A009EE362 /* kelebike.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kelebike.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B16D80C6290D222A009EE362 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B16D80C8290D222A009EE362 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -169,8 +175,11 @@
 		B1B213F0290D30A800DCB832 /* Welcome */ = {
 			isa = PBXGroup;
 			children = (
+				41E30C1D291346A1000014BF /* login.gif */,
+				41E30C212913470F000014BF /* signup.gif */,
 				B1B213F1290D30CB00DCB832 /* LoginViewController.swift */,
 				B1B213F3290D30DA00DCB832 /* SignUpViewController.swift */,
+				41315717291338A0004C2FC2 /* SwiftGif.swift */,
 			);
 			path = Welcome;
 			sourceTree = "<group>";
@@ -265,6 +274,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41E30C222913470F000014BF /* signup.gif in Resources */,
+				41E30C1E291346A2000014BF /* login.gif in Resources */,
 				B16D80D3290D222A009EE362 /* LaunchScreen.storyboard in Resources */,
 				B1B213F8290D3A4400DCB832 /* GoogleService-Info.plist in Resources */,
 				B16D80D0290D222A009EE362 /* Assets.xcassets in Resources */,
@@ -283,6 +294,7 @@
 				B16D80C7290D222A009EE362 /* AppDelegate.swift in Sources */,
 				B16D80C9290D222A009EE362 /* SceneDelegate.swift in Sources */,
 				B1B213F4290D30DA00DCB832 /* SignUpViewController.swift in Sources */,
+				41315718291338A0004C2FC2 /* SwiftGif.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,7 +448,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -464,7 +476,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
