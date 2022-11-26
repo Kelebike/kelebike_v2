@@ -20,15 +20,6 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
                
         gifView.loadGif(name: "login")
-        /*
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = view.bounds
-        gradientLayer.colors = [
-            UIColor.systemPink.cgColor,
-            UIColor.systemPurple.cgColor
-        ]
-        view.layer.addSublayer(gradientLayer)
-        */
         
     }
 
