@@ -30,7 +30,9 @@ class ProfileViewController: UIViewController {
             print("Error!")
         }
         
-        performSegue(withIdentifier: "toLogin", sender: nil)  
+        self.navigationController?.popViewController(animated: true)
+        
+        
         
     }
     
