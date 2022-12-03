@@ -278,17 +278,6 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KTP-oG-G0t">
-                                <rect key="frame" x="137.5" y="768" width="139" height="35"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" image="qrcode.viewfinder" catalog="system" title=" Take a bike">
-                                    <color key="baseBackgroundColor" red="0.1607843041" green="0.2823529541" blue="0.63137257099999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="scanQRTapped:" destination="dzF-5I-y2G" eventType="touchUpInside" id="ISS-tG-aNt"/>
-                                    <segue destination="f9f-pr-sjd" kind="presentation" id="ABD-E3-gO4"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6oo-tk-ULL">
                                 <rect key="frame" x="40" y="124" width="334" height="150"/>
                                 <constraints>
@@ -316,22 +305,37 @@
                                     <action selector="putDataTapped:" destination="dzF-5I-y2G" eventType="touchUpInside" id="6HK-k2-k6I"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0CE-ZZ-1bn">
+                                <rect key="frame" x="137.5" y="773" width="139" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" image="qrcode.viewfinder" catalog="system" title=" Take a bike">
+                                    <color key="baseBackgroundColor" red="0.1607843041" green="0.2823529541" blue="0.63137257099999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <segue destination="f9f-pr-sjd" kind="popoverPresentation" popoverAnchorView="0CE-ZZ-1bn" id="og5-nO-I5s">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mvq-pl-KxL"/>
                         <color key="backgroundColor" red="0.8078432083" green="0.88627451660000001" blue="0.46666663889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="ygY-uk-bu5" firstAttribute="top" secondItem="mvq-pl-KxL" secondAttribute="top" constant="10" id="2oO-za-1zA"/>
-                            <constraint firstItem="mvq-pl-KxL" firstAttribute="bottom" secondItem="KTP-oG-G0t" secondAttribute="bottom" constant="10" id="4Dc-cO-3Lw"/>
                             <constraint firstItem="mvq-pl-KxL" firstAttribute="trailing" secondItem="6oo-tk-ULL" secondAttribute="trailing" constant="40" id="KLL-NV-ekh"/>
-                            <constraint firstItem="KTP-oG-G0t" firstAttribute="centerX" secondItem="qj9-BC-HtI" secondAttribute="centerX" id="LID-iy-0ro"/>
+                            <constraint firstItem="mvq-pl-KxL" firstAttribute="bottom" secondItem="0CE-ZZ-1bn" secondAttribute="bottom" constant="5" id="Non-iw-tAB"/>
                             <constraint firstItem="6oo-tk-ULL" firstAttribute="top" secondItem="ygY-uk-bu5" secondAttribute="bottom" constant="30" id="TEE-FS-B8r"/>
                             <constraint firstItem="ygY-uk-bu5" firstAttribute="leading" secondItem="mvq-pl-KxL" secondAttribute="leading" constant="20" id="pNz-xB-fMl"/>
                             <constraint firstItem="6oo-tk-ULL" firstAttribute="centerX" secondItem="qj9-BC-HtI" secondAttribute="centerX" id="wWu-CH-y1L"/>
+                            <constraint firstItem="0CE-ZZ-1bn" firstAttribute="centerX" secondItem="qj9-BC-HtI" secondAttribute="centerX" id="wp3-tv-iJt"/>
                             <constraint firstItem="6oo-tk-ULL" firstAttribute="leading" secondItem="mvq-pl-KxL" secondAttribute="leading" constant="40" id="yVe-m1-Z9g"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" id="1fu-AA-3CY"/>
                     <navigationItem key="navigationItem" id="OBY-SG-5Te"/>
+                    <connections>
+                        <outlet property="label" destination="GZB-9i-kgI" id="lak-Eg-OT5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rXw-Wz-2gU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -368,6 +372,9 @@
                                 <buttonConfiguration key="configuration" style="filled" image="abc" catalog="system" title="">
                                     <color key="baseBackgroundColor" red="0.1607843041" green="0.2823529541" blue="0.63137257099999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="abcButtonTapped:" destination="f9f-pr-sjd" eventType="touchUpInside" id="gfQ-Kw-Gwe"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iSC-gn-TMo">
                                 <rect key="frame" x="344" y="58" width="50" height="50"/>
@@ -379,14 +386,29 @@
                                 <buttonConfiguration key="configuration" style="filled" image="flashlight.off.fill" catalog="system" title="">
                                     <color key="baseBackgroundColor" red="0.1607843041" green="0.2823529541" blue="0.63137257099999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="flaslightTapped:" destination="f9f-pr-sjd" eventType="touchUpInside" id="TGn-Ke-jEW"/>
+                                </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter QR Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rwd-Nf-GrY">
+                                <rect key="frame" x="132" y="394" width="150" height="50"/>
+                                <color key="backgroundColor" red="0.88235294819999999" green="0.39607840779999998" blue="0.1686274707" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="Mup-yo-CRe"/>
+                                    <constraint firstAttribute="height" constant="50" id="SAQ-d5-JJN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="continue"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="36c-Ee-fzT"/>
                         <color key="backgroundColor" red="0.8078432083" green="0.88627451660000001" blue="0.46666663889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="36c-Ee-fzT" firstAttribute="trailing" secondItem="iSC-gn-TMo" secondAttribute="trailing" constant="20" id="3XG-F6-42C"/>
                             <constraint firstItem="ma5-8h-XjN" firstAttribute="top" secondItem="36c-Ee-fzT" secondAttribute="top" constant="20" id="4XE-Jn-btn"/>
+                            <constraint firstItem="Rwd-Nf-GrY" firstAttribute="centerY" secondItem="rJB-fc-DM5" secondAttribute="centerY" id="9UA-B3-ogl"/>
                             <constraint firstItem="RWL-tt-8UB" firstAttribute="centerY" secondItem="rJB-fc-DM5" secondAttribute="centerY" id="KGw-JT-F5K"/>
+                            <constraint firstItem="Rwd-Nf-GrY" firstAttribute="centerX" secondItem="rJB-fc-DM5" secondAttribute="centerX" id="M24-nw-TIc"/>
                             <constraint firstItem="j6A-GO-C2P" firstAttribute="top" secondItem="36c-Ee-fzT" secondAttribute="top" constant="10" id="RaG-Fl-AWG"/>
                             <constraint firstItem="iSC-gn-TMo" firstAttribute="leading" secondItem="j6A-GO-C2P" secondAttribute="trailing" constant="5" id="Uhw-iy-y9H"/>
                             <constraint firstItem="RWL-tt-8UB" firstAttribute="centerX" secondItem="rJB-fc-DM5" secondAttribute="centerX" id="Xi3-RL-wKT"/>
@@ -396,6 +418,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="erU-4c-fLW"/>
                     <connections>
+                        <outlet property="codeTextField" destination="Rwd-Nf-GrY" id="5yj-Na-vxI"/>
                         <outlet property="imageView" destination="RWL-tt-8UB" id="oxa-Lh-FzD"/>
                     </connections>
                 </viewController>

@@ -10,6 +10,8 @@
 		41853AF0293AEDF6006E2167 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41853AEF293AEDF6006E2167 /* WelcomeViewController.swift */; };
 		41853AF6293AF8B6006E2167 /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41853AF5293AF8B6006E2167 /* PageView.swift */; };
 		B149AC3A29377065002F1D78 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B149AC3929377065002F1D78 /* HomeViewController.swift */; };
+		B15136DD293BE34B00B0642C /* Bike.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15136DC293BE34B00B0642C /* Bike.swift */; };
+		B15136E0293BFA3800B0642C /* BikeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15136DF293BFA3800B0642C /* BikeService.swift */; };
 		B16D80C7290D222A009EE362 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16D80C6290D222A009EE362 /* AppDelegate.swift */; };
 		B16D80C9290D222A009EE362 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16D80C8290D222A009EE362 /* SceneDelegate.swift */; };
 		B16D80CE290D222A009EE362 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B16D80CC290D222A009EE362 /* Main.storyboard */; };
@@ -56,6 +58,8 @@
 		41853AEF293AEDF6006E2167 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		41853AF5293AF8B6006E2167 /* PageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
 		B149AC3929377065002F1D78 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		B15136DC293BE34B00B0642C /* Bike.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bike.swift; sourceTree = "<group>"; };
+		B15136DF293BFA3800B0642C /* BikeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeService.swift; sourceTree = "<group>"; };
 		B16D80C3290D222A009EE362 /* kelebike.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kelebike.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B16D80C6290D222A009EE362 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B16D80C8290D222A009EE362 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -120,6 +124,31 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		B15136DA293BE33800B0642C /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				B15136DE293BFA2C00B0642C /* Service */,
+				B15136DB293BE34300B0642C /* Model */,
+			);
+			path = Product;
+			sourceTree = "<group>";
+		};
+		B15136DB293BE34300B0642C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B15136DC293BE34B00B0642C /* Bike.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B15136DE293BFA2C00B0642C /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				B15136DF293BFA3800B0642C /* BikeService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		B16D80BA290D222A009EE362 = {
 			isa = PBXGroup;
 			children = (
@@ -140,7 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				B1B213F7290D3A4400DCB832 /* GoogleService-Info.plist */,
-				B1B213EE290D308200DCB832 /* Product */,
+				B15136DA293BE33800B0642C /* Product */,
 				B1B213ED290D306300DCB832 /* Feature */,
 				B1B213EC290D305600DCB832 /* Resources */,
 				B1B213EB290D2FC400DCB832 /* Utils */,
@@ -198,14 +227,6 @@
 			path = Feature;
 			sourceTree = "<group>";
 		};
-		B1B213EE290D308200DCB832 /* Product */ = {
-			isa = PBXGroup;
-			children = (
-				B1C258E7293B928F004A536C /* Model */,
-			);
-			path = Product;
-			sourceTree = "<group>";
-		};
 		B1B213EF290D309200DCB832 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
@@ -231,13 +252,6 @@
 				B1BB3E4E293AB36E00E1CAC0 /* ProfileViewController.swift */,
 			);
 			path = Profile;
-			sourceTree = "<group>";
-		};
-		B1C258E7293B928F004A536C /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		B1D43BD2293217F200B8D019 /* QRScanner */ = {
@@ -357,11 +371,13 @@
 				B1B213F2290D30CB00DCB832 /* LoginViewController.swift in Sources */,
 				41853AF6293AF8B6006E2167 /* PageView.swift in Sources */,
 				41853AF0293AEDF6006E2167 /* WelcomeViewController.swift in Sources */,
+				B15136E0293BFA3800B0642C /* BikeService.swift in Sources */,
 				B16D80C7290D222A009EE362 /* AppDelegate.swift in Sources */,
 				B1BB3E4F293AB36E00E1CAC0 /* ProfileViewController.swift in Sources */,
 				B18D69DA2931FE2000CC66D2 /* HomepageViewController.swift in Sources */,
 				B1BB3E4C293AB20B00E1CAC0 /* TabBarController.swift in Sources */,
 				B149AC3A29377065002F1D78 /* HomeViewController.swift in Sources */,
+				B15136DD293BE34B00B0642C /* Bike.swift in Sources */,
 				B16D80C9290D222A009EE362 /* SceneDelegate.swift in Sources */,
 				B1B213F4290D30DA00DCB832 /* SignUpViewController.swift in Sources */,
 				B1D43BD42932182100B8D019 /* QRScannerViewController.swift in Sources */,

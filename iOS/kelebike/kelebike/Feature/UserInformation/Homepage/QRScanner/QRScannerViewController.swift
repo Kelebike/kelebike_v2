@@ -10,13 +10,17 @@ import AVFoundation
 
 class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
+    @IBOutlet weak var codeTextField: UITextField!
     @IBOutlet weak var imageView: UIImageView!
+    
+    var codeTapped : Bool = false
     
     let session = AVCaptureSession()
     var previewLayer = AVCaptureVideoPreviewLayer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let captureDevice = AVCaptureDevice.default(for: AVMediaType.video)
 
         do{
@@ -44,7 +48,7 @@ class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsD
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        session.stopRunning()
+        //session.stopRunning()
     }
     
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
@@ -60,5 +64,43 @@ class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsD
     }
     
     
+    @IBAction func abcButtonTapped(_ sender: Any) {
+        codeTapped = !codeTapped
+        
+        if(codeTapped){
+            codeTextField.isUserInteractionEnabled = true
+            self.view.bringSubviewToFront(codeTextField)
+        }
+        else {
+            codeTextField.isUserInteractionEnabled = false
+            self.view.sendSubviewToBack(codeTextField)
+        }
+    }
+    
+    @IBAction func flaslightTapped(_ sender: Any) {
+        toggleFlash()
+    }
+    
+    func toggleFlash() {
+        guard let device = AVCaptureDevice.default(for: AVMediaType.video) else { return }
+        guard device.hasTorch else { return }
 
+        do {
+            try device.lockForConfiguration()
+
+            if (device.torchMode == AVCaptureDevice.TorchMode.on) {
+                device.torchMode = AVCaptureDevice.TorchMode.off
+            } else {
+                do {
+                    try device.setTorchModeOn(level: 1.0)
+                } catch {
+                    print(error)
+                }
+            }
+
+            device.unlockForConfiguration()
+        } catch {
+            print(error)
+        }
+    }
 }
