@@ -30,7 +30,13 @@ class ProfileViewController: UIViewController {
             print("Error!")
         }
         
+<<<<<<< Updated upstream
         performSegue(withIdentifier: "toLogin", sender: nil)  
+=======
+        performSegue(withIdentifier: "toLogin", sender: nil)
+        
+        
+>>>>>>> Stashed changes
         
     }
     
