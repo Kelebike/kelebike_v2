@@ -19,7 +19,6 @@ class LoginViewController: UIViewController {
     
     
     var passwordVisible: Bool = true
-    var loginCounter : Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +44,8 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginTapped(_ sender: Any) {
             activityIndicator.startAnimating()
+        
+            //waits until firebase signed up 
             Task { @MainActor in
                 
                 do {
@@ -56,11 +57,9 @@ class LoginViewController: UIViewController {
                 if Auth.auth().currentUser == nil
                 {
                     createAlert(title: "ERROR", message: "User not found!\nPlease sign up and try again.", goBack: false)
-                    loginCounter -= 1
                 }
                 else {
                     performSegue(withIdentifier: "toHomepage", sender: nil)
-                    loginCounter = 0
                 }
                 
             }

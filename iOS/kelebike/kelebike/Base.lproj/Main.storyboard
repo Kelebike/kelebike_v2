@@ -307,6 +307,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ab8-bq-uQI">
+                                <rect key="frame" x="104" y="604" width="182" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Put data to database"/>
+                                <connections>
+                                    <action selector="putDataTapped:" destination="dzF-5I-y2G" eventType="touchUpInside" id="6HK-k2-k6I"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mvq-pl-KxL"/>
                         <color key="backgroundColor" red="0.8078432083" green="0.88627451660000001" blue="0.46666663889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
