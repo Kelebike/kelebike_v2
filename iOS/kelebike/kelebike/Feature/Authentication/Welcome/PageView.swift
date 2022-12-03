@@ -35,7 +35,7 @@ class PageView: UIView {
     func setup() {
         // get image and load it
         let imageView = UIImageView(image: UIImage(imageLiteralResourceName: imageName))
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleAspectFit
         //imageView.backgroundColor = .bgColor
         
         // set description text and style
@@ -49,6 +49,7 @@ class PageView: UIView {
         textView.isEditable = false
         textView.isScrollEnabled = false
         textView.backgroundColor = .bgColor
+        textView.textColor = .white
         
         imageView.translatesAutoresizingMaskIntoConstraints = false
         textView.translatesAutoresizingMaskIntoConstraints = false        
