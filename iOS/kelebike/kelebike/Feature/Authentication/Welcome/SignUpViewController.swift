@@ -43,10 +43,12 @@ class SignUpViewController: UIViewController {
     @IBAction func signUpTapped(_ sender: Any) {
         if(email.text?.isEmpty == true ){
             print("email empty")
+            createAlert(title: "ERROR", message: "Email is empty!", goBack: false)
             return
         }
         else if(password.text?.isEmpty == true){
             print("password empty")
+            createAlert(title: "ERROR", message: "Password is empty!", goBack: false)
             return
         }
         else if(password.text!.count < 6){
@@ -141,7 +143,7 @@ class SignUpViewController: UIViewController {
     
     
     @IBAction func showPolicy(_ sender: Any) {
-        var policy : String = "I received the bike which was given by the Department of Health and Sports Bicycle Unit and registered its brand model and serial number completely and intact.\nBicycle Delivery Terms\n1- The temporary allocation period for bicycle use is 5 (five working days. In case the usage period is extended the registration renewal process will be done again. The person who does not do this will not be given a bike again. Bicycles will be delivered to the Bicycle Unit of the Department of Health Culture and Sports.\n2- The student/staff can only buy the bike in their own name. It is forbidden to buy a bicycle and make transactions on behalf of another person. Can only take one bike for own use.\n3- The student/staff will deliver the received bike complete with all its accessories in good condition and in working condition on the date of delivery.\n4- Student/staff cannot lend rent or sell the bicycle they have received to a third party.\n5- The student/staff is responsible for the safety of the bicycle they receive. He is obliged to compensate for the value of the lost bike or to replace it with a new one of equal value.\n6- Students/staff will use it in accordance with the Bicycle Usage Rules directive and Safe Cycling Guidelines in Cities..\n7- In cases where it is determined to be caused by user error all expenses related to accidents and all kinds of material and moral damages all kinds of malfunctions and repair expenses that may occur in bicycles due to use that are not in accordance with the driving rules and safety explanations and the rules in the Safe Cycling User's Guide in Cities are collected from the user. will be. Action is taken in accordance with the relevant legislation and directive."
+        let policy : String = "I received the bike which was given by the Department of Health and Sports Bicycle Unit and registered its brand model and serial number completely and intact.\nBicycle Delivery Terms\n1- The temporary allocation period for bicycle use is 5 (five working days. In case the usage period is extended the registration renewal process will be done again. The person who does not do this will not be given a bike again. Bicycles will be delivered to the Bicycle Unit of the Department of Health Culture and Sports.\n2- The student/staff can only buy the bike in their own name. It is forbidden to buy a bicycle and make transactions on behalf of another person. Can only take one bike for own use.\n3- The student/staff will deliver the received bike complete with all its accessories in good condition and in working condition on the date of delivery.\n4- Student/staff cannot lend rent or sell the bicycle they have received to a third party.\n5- The student/staff is responsible for the safety of the bicycle they receive. He is obliged to compensate for the value of the lost bike or to replace it with a new one of equal value.\n6- Students/staff will use it in accordance with the Bicycle Usage Rules directive and Safe Cycling Guidelines in Cities..\n7- In cases where it is determined to be caused by user error all expenses related to accidents and all kinds of material and moral damages all kinds of malfunctions and repair expenses that may occur in bicycles due to use that are not in accordance with the driving rules and safety explanations and the rules in the Safe Cycling User's Guide in Cities are collected from the user. will be. Action is taken in accordance with the relevant legislation and directive."
         
         self.createAlert(title: "Bike Renting Policy", message: policy, goBack: false)
     }

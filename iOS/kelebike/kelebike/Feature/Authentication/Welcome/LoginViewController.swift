@@ -18,6 +18,7 @@ class LoginViewController: UIViewController {
     
     
     var passwordVisible: Bool = true
+    var loginCounter : Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,26 +36,35 @@ class LoginViewController: UIViewController {
 
     @IBAction func forgotPasswordTapped(_ sender: Any) {
         print("forgot password tappped")
+        Auth.auth().sendPasswordReset(withEmail: email.text!)
+        createAlert(title: "Reset Password", message: "Reset email has been sent. Please check your inbox.", goBack: false)
     }
     
     @IBAction func loginTapped(_ sender: Any) {
-        Task { @MainActor in
-            
-            do {
-                try await Auth.auth().signIn(withEmail: email.text!, password: password.text!)
-            }catch{
-                print("error")
+        if loginCounter <= 0
+        {
+            loginCounter += 1
+            Task { @MainActor in
+                
+                do {
+                    try await Auth.auth().signIn(withEmail: email.text!, password: password.text!)
+                }catch{
+                    print("error")
+                }
+                
+                if Auth.auth().currentUser == nil
+                {
+                    createAlert(title: "ERROR", message: "User not found!\nPlease sign up and try again.", goBack: false)
+                    loginCounter -= 1
+                }
+                else {
+                    performSegue(withIdentifier: "toHomepage", sender: nil)
+                    loginCounter = 0
+                }
+                
             }
-            
-            if Auth.auth().currentUser == nil
-            {
-                createAlert(title: "ERROR", message: "User not found!\nPlease sign up and try again.", goBack: false)
-            }
-            else {
-                performSegue(withIdentifier: "toHomepage", sender: nil)
-            }
-            
         }
+        
     }
     
     @IBAction func dontYouHaveAnAccountTapped(_ sender: Any) {

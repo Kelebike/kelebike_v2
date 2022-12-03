@@ -14,11 +14,11 @@
             <objects>
                 <viewController storyboardIdentifier="login" useStoryboardIdentifierAsRestorationIdentifier="YES" keyboardType="off" id="BYZ-38-t0r" customClass="LoginViewController" customModule="kelebike" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eFQ-9J-k8O">
-                                <rect key="frame" x="94" y="827" width="226" height="35"/>
+                                <rect key="frame" x="94" y="803" width="226" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Don't you have an acount?">
                                     <color key="baseForegroundColor" red="0.1137254902" green="0.28627450980000002" blue="0.65490196079999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -144,7 +144,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign up" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bIF-CH-R9C">
                                 <rect key="frame" x="100" y="93" width="214" height="36"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="30"/>
-                                <color key="textColor" systemColor="systemOrangeColor"/>
+                                <color key="textColor" red="0.88235294819999999" green="0.39607840779999998" blue="0.1686274707" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RFd-5h-2fI">
@@ -260,31 +260,36 @@
             <objects>
                 <viewController id="dzF-5I-y2G" customClass="HomeViewController" customModule="kelebike" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qj9-BC-HtI">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Have a great day!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ygY-uk-bu5">
-                                <rect key="frame" x="20" y="58" width="253" height="36"/>
+                                <rect key="frame" x="20" y="10" width="253" height="36"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KTP-oG-G0t">
-                                <rect key="frame" x="137.5" y="768" width="139" height="35"/>
+                                <rect key="frame" x="137.5" y="744" width="139" height="35"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" image="qrcode.viewfinder" catalog="system" title=" Take a bike"/>
+                                <buttonConfiguration key="configuration" style="filled" image="qrcode.viewfinder" catalog="system" title=" Take a bike">
+                                    <color key="baseBackgroundColor" red="0.1607843041" green="0.2823529541" blue="0.63137257099999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="scanQRTapped:" destination="dzF-5I-y2G" eventType="touchUpInside" id="ISS-tG-aNt"/>
                                     <segue destination="f9f-pr-sjd" kind="presentation" id="ABD-E3-gO4"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6oo-tk-ULL">
-                                <rect key="frame" x="40" y="124" width="334" height="150"/>
+                                <rect key="frame" x="40" y="76" width="334" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="MLj-RO-8L7"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Tap me to see available bikes..."/>
+                                <buttonConfiguration key="configuration" style="filled" title="Tap me to see available bikes...">
+                                    <color key="baseForegroundColor" systemColor="systemYellowColor"/>
+                                    <color key="baseBackgroundColor" red="0.1607843041" green="0.2823529541" blue="0.63137257099999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="There is no bike here yet." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GZB-9i-kgI">
                                 <rect key="frame" x="35" y="370" width="360" height="36"/>
@@ -308,6 +313,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" id="1fu-AA-3CY"/>
+                    <navigationItem key="navigationItem" id="OBY-SG-5Te"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rXw-Wz-2gU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -341,7 +347,9 @@
                                     <constraint firstAttribute="width" constant="50" id="wr5-sk-zZf"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" image="abc" catalog="system" title=""/>
+                                <buttonConfiguration key="configuration" style="filled" image="abc" catalog="system" title="">
+                                    <color key="baseBackgroundColor" red="0.1607843041" green="0.2823529541" blue="0.63137257099999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iSC-gn-TMo">
                                 <rect key="frame" x="344" y="58" width="50" height="50"/>
@@ -350,7 +358,9 @@
                                     <constraint firstAttribute="width" constant="50" id="do5-mq-nzB"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" image="flashlight.off.fill" catalog="system" title=""/>
+                                <buttonConfiguration key="configuration" style="filled" image="flashlight.off.fill" catalog="system" title="">
+                                    <color key="baseBackgroundColor" red="0.1607843041" green="0.2823529541" blue="0.63137257099999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="36c-Ee-fzT"/>
@@ -380,7 +390,7 @@
             <objects>
                 <viewController id="LYd-8Q-Fpm" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1Gr-04-esP">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="eeeeeee" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gFy-UX-H9N">
@@ -409,6 +419,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" red="0.1607843041" green="0.2823529541" blue="0.63137257099999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBar>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="initialIndex">
@@ -430,13 +441,12 @@
             <objects>
                 <viewController id="yiq-94-g81" customClass="ProfileViewController" customModule="kelebike" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" opaque="NO" contentMode="scaleToFill" id="SYl-uk-Gzv">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3WD-xx-RoJ">
-                                <rect key="frame" x="117" y="270" width="196" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3WD-xx-RoJ">
+                                <rect key="frame" x="20" y="10" width="96" height="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -452,6 +462,10 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Fax-LZ-Wo7"/>
                         <color key="backgroundColor" red="0.8078432083" green="0.88627451660000001" blue="0.46666663889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="3WD-xx-RoJ" firstAttribute="leading" secondItem="Fax-LZ-Wo7" secondAttribute="leading" constant="20" id="9Sr-NO-d2G"/>
+                            <constraint firstItem="3WD-xx-RoJ" firstAttribute="top" secondItem="Fax-LZ-Wo7" secondAttribute="top" constant="10" id="nHa-cK-aKX"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="person.fill" catalog="system" id="0IF-c0-GWN"/>
                     <connections>
@@ -461,7 +475,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YT8-kq-9Kj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3596" y="741"/>
+            <point key="canvasLocation" x="3595.652173913044" y="740.625"/>
         </scene>
         <!--Welcome View Controller-->
         <scene sceneID="ezn-yY-YAL">
@@ -505,7 +519,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Cvd-FX-sJx"/>
+        <segue reference="dzW-un-OMP"/>
+        <segue reference="5xf-Bb-Cs8"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="abc" catalog="system" width="128" height="50"/>
@@ -524,8 +539,8 @@
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

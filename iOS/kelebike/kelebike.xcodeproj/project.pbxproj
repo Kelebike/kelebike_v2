@@ -201,6 +201,7 @@
 		B1B213EE290D308200DCB832 /* Product */ = {
 			isa = PBXGroup;
 			children = (
+				B1C258E7293B928F004A536C /* Model */,
 			);
 			path = Product;
 			sourceTree = "<group>";
@@ -230,6 +231,13 @@
 				B1BB3E4E293AB36E00E1CAC0 /* ProfileViewController.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		B1C258E7293B928F004A536C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		B1D43BD2293217F200B8D019 /* QRScanner */ = {

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 extension UIColor {
     // extension to UIColor for easy acces of background color
@@ -106,7 +107,6 @@ class WelcomeViewController: UIViewController {
     // main view func
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.backgroundColor = .bgColor
 
         setupComponents()
