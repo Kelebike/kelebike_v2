@@ -10,6 +10,7 @@ import FirebaseAuth
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var gifView: UIImageView!
@@ -22,6 +23,8 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.stopAnimating()
         
         email.attributedPlaceholder = NSAttributedString(
             string: "Email",
@@ -41,9 +44,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginTapped(_ sender: Any) {
-        if loginCounter <= 0
-        {
-            loginCounter += 1
+            activityIndicator.startAnimating()
             Task { @MainActor in
                 
                 do {
@@ -63,7 +64,7 @@ class LoginViewController: UIViewController {
                 }
                 
             }
-        }
+            activityIndicator.stopAnimating()
         
     }
     

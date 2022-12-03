@@ -94,22 +94,30 @@
                                     <action selector="showHideButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nN2-Gs-P7d"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="7bK-fY-Nzu">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.8078432083" green="0.88627451660000001" blue="0.46666663889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="5m6-Gp-qvS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="70" id="2Mr-eV-j66"/>
                             <constraint firstItem="dE9-kJ-vnW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3El-x3-qeh"/>
+                            <constraint firstAttribute="bottom" secondItem="7bK-fY-Nzu" secondAttribute="bottom" id="5et-hc-W5V"/>
                             <constraint firstItem="E7e-KS-CDE" firstAttribute="top" secondItem="dE9-kJ-vnW" secondAttribute="bottom" constant="20" id="O0F-rU-Tzl"/>
+                            <constraint firstItem="7bK-fY-Nzu" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="OlE-3q-3pF"/>
                             <constraint firstItem="eFQ-9J-k8O" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Raa-r4-GuG"/>
                             <constraint firstItem="5m6-Gp-qvS" firstAttribute="top" secondItem="ohi-Tk-zzx" secondAttribute="bottom" constant="5" id="TdI-cs-geL"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5m6-Gp-qvS" secondAttribute="trailing" constant="70" id="UMM-zG-iDE"/>
                             <constraint firstItem="qTd-hc-EOi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="Z5W-Ea-ZKs"/>
                             <constraint firstItem="eFQ-9J-k8O" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aF2-SX-I4r"/>
                             <constraint firstItem="K8b-yc-gjF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="aHs-ng-bf2"/>
+                            <constraint firstItem="7bK-fY-Nzu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="bUP-qN-HFX"/>
                             <constraint firstItem="dE9-kJ-vnW" firstAttribute="top" secondItem="K8b-yc-gjF" secondAttribute="bottom" constant="5" id="bmG-aY-pcP"/>
                             <constraint firstItem="8cA-Wy-FDr" firstAttribute="trailing" secondItem="ohi-Tk-zzx" secondAttribute="trailing" id="cOt-RB-Pcl"/>
                             <constraint firstItem="K8b-yc-gjF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nSy-on-5xI"/>
+                            <constraint firstItem="7bK-fY-Nzu" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="nnu-9q-1Fb"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qTd-hc-EOi" secondAttribute="trailing" constant="100" id="nsU-AR-vaO"/>
                             <constraint firstItem="8cA-Wy-FDr" firstAttribute="top" secondItem="ohi-Tk-zzx" secondAttribute="top" id="nsk-mo-MTR"/>
                             <constraint firstItem="ohi-Tk-zzx" firstAttribute="top" secondItem="E7e-KS-CDE" secondAttribute="bottom" constant="5" id="piv-nB-rba"/>
@@ -122,6 +130,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="E8z-BW-15e"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="7bK-fY-Nzu" id="ybb-fA-Gpw"/>
                         <outlet property="email" destination="E7e-KS-CDE" id="UcW-34-bI1"/>
                         <outlet property="password" destination="ohi-Tk-zzx" id="FUR-hh-EFG"/>
                         <outlet property="showHideIcon" destination="8cA-Wy-FDr" id="Tcp-zc-gEO"/>
@@ -131,7 +140,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1150" y="3"/>
+            <point key="canvasLocation" x="1149.2753623188407" y="2.6785714285714284"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="JBq-dy-Btf">
