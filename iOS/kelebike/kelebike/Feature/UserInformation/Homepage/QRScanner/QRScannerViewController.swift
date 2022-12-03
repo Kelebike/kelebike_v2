@@ -11,6 +11,7 @@ import AVFoundation
 class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     @IBOutlet weak var imageView: UIImageView!
+    
     let session = AVCaptureSession()
     var previewLayer = AVCaptureVideoPreviewLayer()
     
@@ -35,7 +36,7 @@ class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsD
         previewLayer.frame = view.layer.bounds
         view.layer.addSublayer(previewLayer)
         imageView.layer.borderWidth = 4
-        imageView.layer.borderColor = UIColor.brown.cgColor
+        imageView.layer.borderColor = UIColor.orange.cgColor
         self.view.bringSubviewToFront(imageView)
         
         session.startRunning()

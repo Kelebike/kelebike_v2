@@ -6,21 +6,31 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
 
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
-    @IBOutlet weak var showHideIcon: UIButton!
     @IBOutlet weak var gifView: UIImageView!
+    
+    @IBOutlet weak var showHideIcon: UIButton!
+    
     
     var passwordVisible: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
-               
-        gifView.loadGif(name: "login")
         
+        email.attributedPlaceholder = NSAttributedString(
+            string: "Email",
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.darkGray]
+        )
+        
+        password.attributedPlaceholder = NSAttributedString(
+            string: "Password",
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.darkGray]
+        )
     }
 
     @IBAction func forgotPasswordTapped(_ sender: Any) {
@@ -28,9 +38,24 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginTapped(_ sender: Any) {
-        print("login tapped")
-        
-    }    
+        Task { @MainActor in
+            
+            do {
+                try await Auth.auth().signIn(withEmail: email.text!, password: password.text!)
+            }catch{
+                print("error")
+            }
+            
+            if Auth.auth().currentUser == nil
+            {
+                createAlert(title: "ERROR", message: "User not found!\nPlease sign up and try again.", goBack: false)
+            }
+            else {
+                performSegue(withIdentifier: "toHomepage", sender: nil)
+            }
+            
+        }
+    }
     
     @IBAction func dontYouHaveAnAccountTapped(_ sender: Any) {
         print("dont you have an account tapped")
@@ -64,4 +89,27 @@ class LoginViewController: UIViewController {
     @IBAction func donePassword(_ sender: UITextField) {
         sender.resignFirstResponder()
     }
+    
+    // Create new Alert
+    func createAlert(title: String, message: String, goBack: Bool) {
+        let dialogMessage = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        // Create OK button with action handler
+        let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+            print("Ok button tapped")
+            
+            if(goBack){
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "login")
+                vc.modalPresentationStyle = .overFullScreen
+                self.present(vc, animated: true)
+            }
+         })
+        
+        //Add OK button to a dialog message
+        dialogMessage.addAction(ok)
+        // Present Alert to
+        self.present(dialogMessage, animated: true, completion: nil)
+    }
+    
 }
