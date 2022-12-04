@@ -133,12 +133,14 @@ class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsD
         
         // Create OK button with action handler
         let ok = UIAlertAction(title: "Yes", style: .default, handler: { (action) -> Void in
-            print("Ok button tapped")
+            print("Yes button tapped")
             self.performSegue(withIdentifier: "toTabViewFromQR", sender: nil)
+            
          })
         
         let retake = UIAlertAction(title: "Retake", style: .default, handler: { (action) -> Void in
             print("Retake button tapped")
+            self.session.startRunning()
          })
         
         //Add OK button to a dialog message

@@ -17,10 +17,12 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var passwordCheck: UITextField!
     @IBOutlet weak var showHideIcon: UIButton!
     
+    let db = Firestore.firestore()
+    
     
     var passwordVisible: Bool = true
     
-    override func viewDidLoad() {        
+    override func viewDidLoad() {
         super.viewDidLoad()
         email.attributedPlaceholder = NSAttributedString(
             string: "Email",
@@ -39,7 +41,7 @@ class SignUpViewController: UIViewController {
         
         
     }
-
+    
     @IBAction func signUpTapped(_ sender: Any) {
         if(email.text?.isEmpty == true ){
             print("email empty")
@@ -107,7 +109,7 @@ class SignUpViewController: UIViewController {
                 vc.modalPresentationStyle = .overFullScreen
                 self.present(vc, animated: true)
             }
-         })
+        })
         
         //Add OK button to a dialog message
         dialogMessage.addAction(ok)
@@ -148,4 +150,28 @@ class SignUpViewController: UIViewController {
         self.createAlert(title: "Bike Renting Policy", message: policy, goBack: false)
     }
     
+    
+    func addUser(email : String) async{
+        let docRef = db.document("Person/" + email)
+        if(await isItUnique(email)){
+            do{
+                try await docRef.setData(["email" : email, "label" : "user"])
+            } catch {
+                print ("Error about saving document to database...")
+            }
+        }
+        
+        //checks the user if it is exist
+        func isItUnique(_ email: String) async -> Bool {
+            let collectionRef = db.collection("Person/")
+            var smth = false
+            do {
+                smth = try await collectionRef.whereField("email", isEqualTo: email).getDocuments().isEmpty
+            } catch {
+                print("Error about documents")
+            }
+            
+            return smth;
+        }
+    }
 }

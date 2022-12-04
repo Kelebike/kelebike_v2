@@ -42,7 +42,7 @@ class HomeViewController: UIViewController {
     
     
     
-    @IBAction func availableBikeTapped(_ sender: Any) {
+    @IBAction func refreshTapped(_ sender: Any) {
         let docRef = db.collection("Bike").whereField("status", isEqualTo: "nontaken")
         docRef.getDocuments() { snapshot, error in
             if let error = error {
@@ -58,6 +58,7 @@ class HomeViewController: UIViewController {
         }
         
     }
+    
     
     //checks the code if it is exist
     fileprivate func isItUnique(_ bike: Bike) async -> Bool {
@@ -81,7 +82,6 @@ class HomeViewController: UIViewController {
                 print ("Error about saving document to database...")
             }
         }
-        
-        
     }
+
 }

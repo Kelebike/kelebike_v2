@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -14,8 +15,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="lunchBack.png" translatesAutoresizingMaskIntoConstraints="NO" id="0fN-NP-fOt">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0fN-NP-fOt">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lunchLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="qCW-xs-Yqb">
                                 <rect key="frame" x="87" y="384" width="240" height="128"/>
@@ -24,14 +26,14 @@
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lunchCompany.png" translatesAutoresizingMaskIntoConstraints="NO" id="wE6-gF-MUR">
-                                <rect key="frame" x="156" y="820" width="103" height="44"/>
-                                <color key="backgroundColor" red="0.0" green="0.2901960784" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="155.5" y="820" width="103" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="103" id="9i5-qB-8Mb"/>
                                     <constraint firstAttribute="height" constant="44" id="GxG-Uj-OEp"/>
                                 </constraints>
                             </imageView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="thl-8F-wVJ"/>
                         <color key="backgroundColor" red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="0fN-NP-fOt" firstAttribute="centerY" secondItem="qCW-xs-Yqb" secondAttribute="centerY" id="9m1-vM-6Eh"/>
@@ -52,7 +54,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="lunchBack.png" width="1113" height="1582"/>
         <image name="lunchCompany.png" width="1440" height="810"/>
         <image name="lunchLogo.png" width="1440" height="810"/>
     </resources>
