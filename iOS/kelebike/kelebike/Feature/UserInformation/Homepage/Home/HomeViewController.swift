@@ -15,17 +15,38 @@ var i : Int = 0
 
 class HomeViewController: UIViewController {
 
+    var seconds = 50 // it should be remaining time
     
-    @IBOutlet weak var label: UILabel!
     
     @IBOutlet weak var availableBikes: UILabel!
     
     let db = Firestore.firestore()
     
     @IBOutlet weak var homeText: UILabel!
+    @IBOutlet weak var detailLabel: UILabel!
+    
+    
+    @IBOutlet weak var codeLabel: UILabel!
+    @IBOutlet weak var lockLabel: UILabel!
+    
+    
+    @IBOutlet weak var timerLabel: UILabel!
+    var timer = Timer()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(HomeViewController.counter), userInfo: nil, repeats: true)
+        
+    }
+    
+    @objc func counter() {
+        seconds -= 1
+        timerLabel.text = String(seconds)
+        if(seconds <= 0){
+            timer.invalidate()
+        }
     }
     
     
@@ -52,6 +73,23 @@ class HomeViewController: UIViewController {
             DispatchQueue.main.async {
                 let count = snapshot?.documents.count
                 self.availableBikes.text = String(count ?? 0)
+            }
+        }
+        
+        let userRef = db.collection("Bike").whereField("owner", isEqualTo: Auth.auth().currentUser?.email ?? "nil" )
+        userRef.getDocuments() { snapshot, error in
+            if let error = error {
+                print("Error getting collection size: \(error)")
+                return
+            }
+            DispatchQueue.main.async {
+                let bike = snapshot?.documents
+                let code = bike?.first?.get("code").map(String.init(describing:)) ?? "nil"
+                var lock = bike?.first?.get("lock").map(String.init(describing:)) ?? "nil"
+                
+                
+                self.detailLabel.text = code
+                
             }
             
             
