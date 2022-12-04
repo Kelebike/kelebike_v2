@@ -9,12 +9,12 @@
 /* Begin PBXBuildFile section */
 		4183AEDD293D593F004EA606 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4183AEDC293D593F004EA606 /* HistoryViewController.swift */; };
 		4183AEDF293D59BB004EA606 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4183AEDE293D59BB004EA606 /* LaunchViewController.swift */; };
+		4183AEE1293D5F92004EA606 /* lunchBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 4183AEE0293D5F92004EA606 /* lunchBack.png */; };
 		41853AF0293AEDF6006E2167 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41853AEF293AEDF6006E2167 /* WelcomeViewController.swift */; };
 		41853AF6293AF8B6006E2167 /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41853AF5293AF8B6006E2167 /* PageView.swift */; };
 		41BF7D0C293D1699008EA4D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41BF7D0B293D1699008EA4D1 /* LaunchScreen.storyboard */; };
 		41BF7D18293D234E008EA4D1 /* lunchCompany.png in Resources */ = {isa = PBXBuildFile; fileRef = 41BF7D17293D234D008EA4D1 /* lunchCompany.png */; };
 		41BF7D20293D2C16008EA4D1 /* lunchLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 41BF7D1F293D2C16008EA4D1 /* lunchLogo.png */; };
-		41BF7D24293D2F1C008EA4D1 /* lunchBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 41BF7D23293D2F1B008EA4D1 /* lunchBack.png */; };
 		B149AC3A29377065002F1D78 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B149AC3929377065002F1D78 /* HomeViewController.swift */; };
 		B15136DD293BE34B00B0642C /* Bike.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15136DC293BE34B00B0642C /* Bike.swift */; };
 		B15136E0293BFA3800B0642C /* BikeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15136DF293BFA3800B0642C /* BikeService.swift */; };
@@ -62,12 +62,12 @@
 /* Begin PBXFileReference section */
 		4183AEDC293D593F004EA606 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		4183AEDE293D59BB004EA606 /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		4183AEE0293D5F92004EA606 /* lunchBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lunchBack.png; sourceTree = "<group>"; };
 		41853AEF293AEDF6006E2167 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		41853AF5293AF8B6006E2167 /* PageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
 		41BF7D0B293D1699008EA4D1 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		41BF7D17293D234D008EA4D1 /* lunchCompany.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lunchCompany.png; sourceTree = "<group>"; };
 		41BF7D1F293D2C16008EA4D1 /* lunchLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lunchLogo.png; sourceTree = "<group>"; };
-		41BF7D23293D2F1B008EA4D1 /* lunchBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lunchBack.png; sourceTree = "<group>"; };
 		B149AC3929377065002F1D78 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B15136DC293BE34B00B0642C /* Bike.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bike.swift; sourceTree = "<group>"; };
 		B15136DF293BFA3800B0642C /* BikeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeService.swift; sourceTree = "<group>"; };
@@ -197,7 +197,7 @@
 				B16D80CC290D222A009EE362 /* Main.storyboard */,
 				B16D80CF290D222A009EE362 /* Assets.xcassets */,
 				41BF7D0B293D1699008EA4D1 /* LaunchScreen.storyboard */,
-				41BF7D23293D2F1B008EA4D1 /* lunchBack.png */,
+				4183AEE0293D5F92004EA606 /* lunchBack.png */,
 				41BF7D1F293D2C16008EA4D1 /* lunchLogo.png */,
 				41BF7D17293D234D008EA4D1 /* lunchCompany.png */,
 				B16D80D4290D222A009EE362 /* Info.plist */,
@@ -383,7 +383,7 @@
 				B1B213F8290D3A4400DCB832 /* GoogleService-Info.plist in Resources */,
 				B16D80D0290D222A009EE362 /* Assets.xcassets in Resources */,
 				41BF7D0C293D1699008EA4D1 /* LaunchScreen.storyboard in Resources */,
-				41BF7D24293D2F1C008EA4D1 /* lunchBack.png in Resources */,
+				4183AEE1293D5F92004EA606 /* lunchBack.png in Resources */,
 				B16D80CE290D222A009EE362 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
