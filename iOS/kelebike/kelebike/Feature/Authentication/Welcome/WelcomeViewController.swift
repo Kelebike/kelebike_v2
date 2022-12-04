@@ -57,8 +57,8 @@ class WelcomeViewController: UIViewController {
     
     lazy var page0: PageView = {
         let view = PageView(imageName: "bike_icon",
-                            descriptionHead: "Rent bikes with the KeleBike App",
-                            descriptionBody: "Welcome to GTU kelebike app. Sign-up with yout @gtu mail and start riding the school bikes in no time")
+                            descriptionHead: "Rent bikes with the kelebike App",
+                            descriptionBody: "Welcome to kelebike app. Sign-up with your mail with gtu.edu.tr extension and start riding the school bikes in no time")
         return view
     }()
     

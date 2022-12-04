@@ -12,6 +12,8 @@ class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsD
     
     @IBOutlet weak var codeTextField: UITextField!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var returnButton: UIButton!
+    
     
     var codeTapped : Bool = false
     
@@ -20,6 +22,8 @@ class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        codeTextField.keyboardType = .numberPad
+        
         
         let captureDevice = AVCaptureDevice.default(for: AVMediaType.video)
 
@@ -30,7 +34,6 @@ class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsD
         }catch{
             print("err")
         }
-        
         let output = AVCaptureMetadataOutput()
         session.addOutput(output)
         output.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
@@ -59,6 +62,10 @@ class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsD
             
             print(readbleObject.stringValue!)
             session.stopRunning()
+            
+            QRScannedAlert(title: "QR Scanned", message: readbleObject.stringValue! + " is that correct?")
+            
+            
         }
         
     }
@@ -69,11 +76,15 @@ class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsD
         
         if(codeTapped){
             codeTextField.isUserInteractionEnabled = true
+            returnButton.isUserInteractionEnabled = true
             self.view.bringSubviewToFront(codeTextField)
+            self.view.bringSubviewToFront(returnButton)
         }
         else {
             codeTextField.isUserInteractionEnabled = false
+            returnButton.isUserInteractionEnabled = false
             self.view.sendSubviewToBack(codeTextField)
+            self.view.sendSubviewToBack(returnButton)
         }
     }
     
@@ -103,4 +114,38 @@ class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsD
             print(error)
         }
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // Dismiss the keyboard
+        print("tapped")
+ 
+        codeTextField.resignFirstResponder()
+        return true
+    }
+    
+    
+    @IBAction func returntapped(_ sender: Any) {
+        print(codeTextField.text ?? "0")
+    }
+    
+    func QRScannedAlert(title: String, message: String) {
+        let dialogMessage = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        // Create OK button with action handler
+        let ok = UIAlertAction(title: "Yes", style: .default, handler: { (action) -> Void in
+            print("Ok button tapped")
+            self.performSegue(withIdentifier: "toTabViewFromQR", sender: nil)
+         })
+        
+        let retake = UIAlertAction(title: "Retake", style: .default, handler: { (action) -> Void in
+            print("Retake button tapped")
+         })
+        
+        //Add OK button to a dialog message
+        dialogMessage.addAction(ok)
+        dialogMessage.addAction(retake)
+        // Present Alert to
+        self.present(dialogMessage, animated: true, completion: nil)
+    }
+    
 }

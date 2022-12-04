@@ -8,14 +8,17 @@
 import UIKit
 import FirebaseAuth
 import FirebaseFirestore
+import FirebaseDatabase
 
 
 var i : Int = 0
 
 class HomeViewController: UIViewController {
+
     
     @IBOutlet weak var label: UILabel!
     
+    @IBOutlet weak var availableBikes: UILabel!
     
     let db = Firestore.firestore()
     
@@ -23,21 +26,37 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-
     }
     
     
     @IBAction func putDataTapped(_ sender: Any) {
         Task { @MainActor in
             
-            var bike = Bike(code: 1265, lock: 0000, brand: "nontaken" ,issuedDate: "nontaken", returnDate: "nontaken", owner: "nontaken", status: "nontaken")
+            let bike = Bike(code: 1265, lock: 0000, brand: "nontaken" ,issuedDate: "nontaken", returnDate: "nontaken", owner: "nontaken", status: "nontaken")
             
             await addBike(bike: bike)
             
             
         }
+    }
+    
+    
+    
+    @IBAction func availableBikeTapped(_ sender: Any) {
+        let docRef = db.collection("Bike").whereField("status", isEqualTo: "nontaken")
+        docRef.getDocuments() { snapshot, error in
+            if let error = error {
+                print("Error getting collection size: \(error)")
+                return
+            }
+            DispatchQueue.main.async {
+                let count = snapshot?.documents.count
+                self.availableBikes.text = String(count ?? 0)
+            }
+            
+            
+        }
+        
     }
     
     //checks the code if it is exist

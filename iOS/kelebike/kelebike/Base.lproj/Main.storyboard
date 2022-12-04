@@ -218,7 +218,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dIg-qI-7lC">
-                                <rect key="frame" x="132" y="303.5" width="150" height="34.5"/>
+                                <rect key="frame" x="132" y="303.5" width="150" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="Dof-47-ucQ"/>
                                     <constraint firstAttribute="height" constant="34.666666666666686" id="ydJ-AB-uB3"/>
@@ -269,17 +269,17 @@
             <objects>
                 <viewController id="dzF-5I-y2G" customClass="HomeViewController" customModule="kelebike" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qj9-BC-HtI">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Have a great day!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ygY-uk-bu5">
-                                <rect key="frame" x="20" y="58" width="253" height="36"/>
+                                <rect key="frame" x="20" y="10" width="253" height="36"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6oo-tk-ULL">
-                                <rect key="frame" x="40" y="124" width="334" height="150"/>
+                                <rect key="frame" x="40" y="76" width="334" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="MLj-RO-8L7"/>
                                 </constraints>
@@ -288,6 +288,9 @@
                                     <color key="baseForegroundColor" systemColor="systemYellowColor"/>
                                     <color key="baseBackgroundColor" red="0.1607843041" green="0.2823529541" blue="0.63137257099999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="availableBikeTapped:" destination="dzF-5I-y2G" eventType="touchUpInside" id="Voh-3M-zxU"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="There is no bike here yet." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GZB-9i-kgI">
                                 <rect key="frame" x="35" y="370" width="360" height="36"/>
@@ -306,7 +309,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0CE-ZZ-1bn">
-                                <rect key="frame" x="137.5" y="773" width="139" height="35"/>
+                                <rect key="frame" x="137.5" y="749" width="139" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" image="qrcode.viewfinder" catalog="system" title=" Take a bike">
                                     <color key="baseBackgroundColor" red="0.1607843041" green="0.2823529541" blue="0.63137257099999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -317,6 +320,13 @@
                                     </segue>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YMZ-4o-bFG">
+                                <rect key="frame" x="175" y="478" width="64" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mvq-pl-KxL"/>
                         <color key="backgroundColor" red="0.8078432083" green="0.88627451660000001" blue="0.46666663889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -334,7 +344,8 @@
                     <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" id="1fu-AA-3CY"/>
                     <navigationItem key="navigationItem" id="OBY-SG-5Te"/>
                     <connections>
-                        <outlet property="label" destination="GZB-9i-kgI" id="lak-Eg-OT5"/>
+                        <outlet property="availableBikes" destination="YMZ-4o-bFG" id="hlU-gz-XoJ"/>
+                        <outlet property="label" destination="GZB-9i-kgI" id="4bs-lk-I2M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rXw-Wz-2gU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -398,13 +409,28 @@
                                     <constraint firstAttribute="height" constant="50" id="SAQ-d5-JJN"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="continue"/>
+                                <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y6h-M2-M7J">
+                                <rect key="frame" x="252" y="404" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="1LV-mM-yex"/>
+                                    <constraint firstAttribute="height" constant="30" id="VQK-yv-CZ1"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" image="return" catalog="system" title="">
+                                    <color key="baseBackgroundColor" red="0.88235294819999999" green="0.39607840779999998" blue="0.1686274707" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="returntapped:" destination="f9f-pr-sjd" eventType="touchUpInside" id="Vvq-zu-27c"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="36c-Ee-fzT"/>
                         <color key="backgroundColor" red="0.8078432083" green="0.88627451660000001" blue="0.46666663889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="36c-Ee-fzT" firstAttribute="trailing" secondItem="iSC-gn-TMo" secondAttribute="trailing" constant="20" id="3XG-F6-42C"/>
+                            <constraint firstItem="y6h-M2-M7J" firstAttribute="centerY" secondItem="Rwd-Nf-GrY" secondAttribute="centerY" id="4R4-mw-e4J"/>
                             <constraint firstItem="ma5-8h-XjN" firstAttribute="top" secondItem="36c-Ee-fzT" secondAttribute="top" constant="20" id="4XE-Jn-btn"/>
                             <constraint firstItem="Rwd-Nf-GrY" firstAttribute="centerY" secondItem="rJB-fc-DM5" secondAttribute="centerY" id="9UA-B3-ogl"/>
                             <constraint firstItem="RWL-tt-8UB" firstAttribute="centerY" secondItem="rJB-fc-DM5" secondAttribute="centerY" id="KGw-JT-F5K"/>
@@ -413,6 +439,7 @@
                             <constraint firstItem="iSC-gn-TMo" firstAttribute="leading" secondItem="j6A-GO-C2P" secondAttribute="trailing" constant="5" id="Uhw-iy-y9H"/>
                             <constraint firstItem="RWL-tt-8UB" firstAttribute="centerX" secondItem="rJB-fc-DM5" secondAttribute="centerX" id="Xi3-RL-wKT"/>
                             <constraint firstItem="iSC-gn-TMo" firstAttribute="top" secondItem="36c-Ee-fzT" secondAttribute="top" constant="10" id="i17-Nw-6Yv"/>
+                            <constraint firstItem="y6h-M2-M7J" firstAttribute="trailing" secondItem="Rwd-Nf-GrY" secondAttribute="trailing" id="jw4-fS-2Z1"/>
                             <constraint firstItem="ma5-8h-XjN" firstAttribute="leading" secondItem="36c-Ee-fzT" secondAttribute="leading" constant="10" id="tde-g0-Djv"/>
                         </constraints>
                     </view>
@@ -420,6 +447,8 @@
                     <connections>
                         <outlet property="codeTextField" destination="Rwd-Nf-GrY" id="5yj-Na-vxI"/>
                         <outlet property="imageView" destination="RWL-tt-8UB" id="oxa-Lh-FzD"/>
+                        <outlet property="returnButton" destination="y6h-M2-M7J" id="lZg-38-taX"/>
+                        <segue destination="q99-uB-8Fl" kind="presentation" identifier="toTabViewFromQR" id="9CV-Se-i8k"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i95-rW-ff0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -431,7 +460,7 @@
             <objects>
                 <viewController id="LYd-8Q-Fpm" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1Gr-04-esP">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="eeeeeee" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gFy-UX-H9N">
@@ -482,11 +511,11 @@
             <objects>
                 <viewController id="yiq-94-g81" customClass="ProfileViewController" customModule="kelebike" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" opaque="NO" contentMode="scaleToFill" id="SYl-uk-Gzv">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3WD-xx-RoJ">
-                                <rect key="frame" x="20" y="58" width="96" height="36"/>
+                                <rect key="frame" x="20" y="10" width="96" height="36"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -560,6 +589,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="9CV-Se-i8k"/>
         <segue reference="Cvd-FX-sJx"/>
     </inferredMetricsTieBreakers>
     <resources>
@@ -570,6 +600,7 @@
         <image name="logo" width="3840" height="2160"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="qrcode.viewfinder" catalog="system" width="128" height="115"/>
+        <image name="return" catalog="system" width="128" height="102"/>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
