@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4183AEDD293D593F004EA606 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4183AEDC293D593F004EA606 /* HistoryViewController.swift */; };
+		4183AEDF293D59BB004EA606 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4183AEDE293D59BB004EA606 /* LaunchViewController.swift */; };
 		41853AF0293AEDF6006E2167 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41853AEF293AEDF6006E2167 /* WelcomeViewController.swift */; };
 		41853AF6293AF8B6006E2167 /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41853AF5293AF8B6006E2167 /* PageView.swift */; };
 		41BF7D0C293D1699008EA4D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41BF7D0B293D1699008EA4D1 /* LaunchScreen.storyboard */; };
@@ -58,6 +60,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4183AEDC293D593F004EA606 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		4183AEDE293D59BB004EA606 /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		41853AEF293AEDF6006E2167 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		41853AF5293AF8B6006E2167 /* PageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
 		41BF7D0B293D1699008EA4D1 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -122,6 +126,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4183AEDB293D591F004EA606 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				4183AEDC293D593F004EA606 /* HistoryViewController.swift */,
+			);
+			name = History;
+			path = "New Group/History";
+			sourceTree = "<group>";
+		};
 		B149AC3829377053002F1D78 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -205,8 +218,9 @@
 			children = (
 				B18D69D92931FE2000CC66D2 /* HomepageViewController.swift */,
 				B1BB3E4B293AB20B00E1CAC0 /* TabBarController.swift */,
-				B1BB3E4D293AB35600E1CAC0 /* Profile */,
 				B149AC3829377053002F1D78 /* Home */,
+				B1BB3E4D293AB35600E1CAC0 /* Profile */,
+				4183AEDB293D591F004EA606 /* History */,
 				B1D43BD2293217F200B8D019 /* QRScanner */,
 			);
 			path = Homepage;
@@ -239,6 +253,7 @@
 		B1B213EF290D309200DCB832 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				4183AEDE293D59BB004EA606 /* LaunchViewController.swift */,
 				B1B213F0290D30A800DCB832 /* Welcome */,
 			);
 			path = Authentication;
@@ -381,10 +396,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1B213F2290D30CB00DCB832 /* LoginViewController.swift in Sources */,
+				4183AEDF293D59BB004EA606 /* LaunchViewController.swift in Sources */,
 				41853AF6293AF8B6006E2167 /* PageView.swift in Sources */,
 				41853AF0293AEDF6006E2167 /* WelcomeViewController.swift in Sources */,
 				B15136E0293BFA3800B0642C /* BikeService.swift in Sources */,
 				B16D80C7290D222A009EE362 /* AppDelegate.swift in Sources */,
+				4183AEDD293D593F004EA606 /* HistoryViewController.swift in Sources */,
 				B1BB3E4F293AB36E00E1CAC0 /* ProfileViewController.swift in Sources */,
 				B18D69DA2931FE2000CC66D2 /* HomepageViewController.swift in Sources */,
 				B1BB3E4C293AB20B00E1CAC0 /* TabBarController.swift in Sources */,

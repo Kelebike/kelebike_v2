@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ro2-tO-RX7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MzK-52-cv7">
     <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -218,7 +218,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dIg-qI-7lC">
-                                <rect key="frame" x="132" y="303.5" width="150" height="35"/>
+                                <rect key="frame" x="132" y="303.5" width="150" height="34.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="Dof-47-ucQ"/>
                                     <constraint firstAttribute="height" constant="34.666666666666686" id="ydJ-AB-uB3"/>
@@ -516,10 +516,10 @@
             </objects>
             <point key="canvasLocation" x="4397" y="3"/>
         </scene>
-        <!--View Controller-->
+        <!--History View Controller-->
         <scene sceneID="nOk-yA-9zm">
             <objects>
-                <viewController id="LYd-8Q-Fpm" sceneMemberID="viewController">
+                <viewController id="LYd-8Q-Fpm" customClass="HistoryViewController" customModule="kelebike" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1Gr-04-esP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -626,6 +626,25 @@
             </objects>
             <point key="canvasLocation" x="-1067" y="3"/>
         </scene>
+        <!--Launch View Controller-->
+        <scene sceneID="LmP-bN-Fab">
+            <objects>
+                <viewController id="MzK-52-cv7" customClass="LaunchViewController" customModule="kelebike" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="l5r-1j-SfY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="qaE-Uq-YKG"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <segue destination="ro2-tO-RX7" kind="presentation" identifier="notSigned" modalPresentationStyle="fullScreen" id="ACi-7z-dGR"/>
+                        <segue destination="q99-uB-8Fl" kind="presentation" identifier="signed" modalPresentationStyle="fullScreen" id="okc-gr-04a"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="klu-tR-96q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="264" y="1146"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="cyM-Dj-xrU">
             <objects>
@@ -650,8 +669,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="og5-nO-I5s"/>
-        <segue reference="9CV-Se-i8k"/>
+        <segue reference="okc-gr-04a"/>
         <segue reference="5xf-Bb-Cs8"/>
     </inferredMetricsTieBreakers>
     <resources>
