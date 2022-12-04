@@ -58,28 +58,28 @@ class WelcomeViewController: UIViewController {
     lazy var page0: PageView = {
         let view = PageView(imageName: "bike_icon",
                             descriptionHead: "Rent bikes with the kelebike App",
-                            descriptionBody: "Welcome to kelebike app. Sign-up with your mail with gtu.edu.tr extension and start riding the school bikes in no time")
+                            descriptionBody: "Welcome to kelebike app. Sign-up with your '@gtu.edu.tr' extension mail and start riding the school bikes in no time")
         return view
     }()
     
     lazy var page1: PageView = {
         let view = PageView(imageName: "how_icon",
-                            descriptionHead: "how to rent",
-                            descriptionBody: "okey  ")
+                            descriptionHead: "How to rent bikes with our app",
+                            descriptionBody: "Just point the camera at the bike QR code or enter the designated four-digit code that you can find on the bike")
         return view
     }()
     
     lazy var page2: PageView = {
         let view = PageView(imageName: "helmet_icon",
-                            descriptionHead: "safety",
-                            descriptionBody: "okey")
+                            descriptionHead: "Make sure to be safe",
+                            descriptionBody: "Always use a helmet while riding and becarefull while crossing the road. Make sure to obey the traffic rules")
         return view
     }()
     
     lazy var page3: PageView = {
         let view = PageView(imageName: "garage_icon",
-                            descriptionHead: "maintenance",
-                            descriptionBody: "okey  ")
+                            descriptionHead: "Keep your bike clean and running",
+                            descriptionBody: "Use the bikes kindly and make sure they are not harmed. All the bikes are brought back for maintenance once every two weeks")
         return view
     }()
     

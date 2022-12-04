@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseCore
+import FirebaseAuth
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         
+        Auth.auth().currentUser != nil
         
         return true
     }

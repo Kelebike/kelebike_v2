@@ -42,7 +42,7 @@ class PageView: UIView {
         let textView = UITextView()
         let attributedText = NSMutableAttributedString(string: descriptionHead, attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20)])
         
-        attributedText.append(NSAttributedString(string: "\n\n\n" + descriptionBody, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15), NSAttributedString.Key.foregroundColor: UIColor.systemGray6 ]))
+        attributedText.append(NSAttributedString(string: "\n\n\n" + descriptionBody, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17), NSAttributedString.Key.foregroundColor: UIColor.systemGray6 ]))
         
         textView.attributedText = attributedText
         textView.textAlignment = .center
@@ -73,8 +73,8 @@ class PageView: UIView {
         // constraints for the description text
         NSLayoutConstraint.activate([
             descriptionTextView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 75),
-            descriptionTextView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 48),
-            descriptionTextView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -48),
+            descriptionTextView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 36),
+            descriptionTextView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -36),
             descriptionTextView.bottomAnchor.constraint(equalTo: bottomAnchor)])
     }
 }
