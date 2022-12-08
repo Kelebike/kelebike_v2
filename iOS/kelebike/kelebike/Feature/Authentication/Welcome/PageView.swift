@@ -32,7 +32,7 @@ class PageView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setup() {
+    private func setup() {
         // get image and load it
         let imageView = UIImageView(image: UIImage(imageLiteralResourceName: imageName))
         imageView.contentMode = .scaleAspectFit
@@ -62,7 +62,7 @@ class PageView: UIView {
         addSubview(self.descriptionTextView)
     }
     
-    func setupLayout(){
+    private func setupLayout(){
         // constraints for the image
         NSLayoutConstraint.activate([
             imageView.centerXAnchor.constraint(equalTo: centerXAnchor),

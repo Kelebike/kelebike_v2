@@ -11,6 +11,9 @@ class TabBarController : UITabBarController {
         tabBar.layer.shadowRadius = 2
         tabBar.layer.shadowColor = UIColor.black.cgColor
         tabBar.layer.shadowOpacity = 0.3
+        tabBar.tintColor = .accentColor
+        tabBar.barTintColor = .white
+        tabBar.backgroundColor = .white
     }
     
     

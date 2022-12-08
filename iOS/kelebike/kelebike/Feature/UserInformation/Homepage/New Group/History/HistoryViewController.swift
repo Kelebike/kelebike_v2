@@ -7,23 +7,43 @@
 
 import UIKit
 
-class HistoryViewController: UIViewController {
-
+class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+    
+    @IBOutlet weak var historyTableView: UITableView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // how many rows are on the table
+        return 10
     }
-    */
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = historyTableView.dequeueReusableCell(withIdentifier: "HistoryCell") as! HistoryTableViewCell
+        
+        cell.id.text = "Bike ID: " + String(indexPath.row)
+        cell.date.text = "23.04.2001"
+        cell.duration.text = "Bike rented for " + String(indexPath.row) + " days"
+        
+        cell.historyView.layer.cornerRadius = cell.historyView.frame.height / 4
+        
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // row press action
+        print("History pressed at index " + String(indexPath.row))
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        // row height
+        return 110
+    }
 
 }

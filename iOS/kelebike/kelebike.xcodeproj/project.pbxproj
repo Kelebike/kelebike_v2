@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		412C82E12941698A0041CF74 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412C82E02941698A0041CF74 /* HistoryTableViewCell.swift */; };
 		4183AEDD293D593F004EA606 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4183AEDC293D593F004EA606 /* HistoryViewController.swift */; };
 		4183AEDF293D59BB004EA606 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4183AEDE293D59BB004EA606 /* LaunchViewController.swift */; };
 		4183AEE1293D5F92004EA606 /* lunchBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 4183AEE0293D5F92004EA606 /* lunchBack.png */; };
@@ -60,6 +61,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		412C82E02941698A0041CF74 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		4183AEDC293D593F004EA606 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		4183AEDE293D59BB004EA606 /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		4183AEE0293D5F92004EA606 /* lunchBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lunchBack.png; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				4183AEDC293D593F004EA606 /* HistoryViewController.swift */,
+				412C82E02941698A0041CF74 /* HistoryTableViewCell.swift */,
 			);
 			name = History;
 			path = "New Group/History";
@@ -404,6 +407,7 @@
 				4183AEDD293D593F004EA606 /* HistoryViewController.swift in Sources */,
 				B1BB3E4F293AB36E00E1CAC0 /* ProfileViewController.swift in Sources */,
 				B18D69DA2931FE2000CC66D2 /* HomepageViewController.swift in Sources */,
+				412C82E12941698A0041CF74 /* HistoryTableViewCell.swift in Sources */,
 				B1BB3E4C293AB20B00E1CAC0 /* TabBarController.swift in Sources */,
 				B149AC3A29377065002F1D78 /* HomeViewController.swift in Sources */,
 				B15136DD293BE34B00B0642C /* Bike.swift in Sources */,
