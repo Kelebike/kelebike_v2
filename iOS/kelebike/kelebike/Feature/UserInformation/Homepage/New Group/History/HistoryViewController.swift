@@ -13,8 +13,8 @@ import FirebaseFirestore
 class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     @IBOutlet weak var historyTableView: UITableView!
-    var ref: DatabaseReference!
-    var query: DatabaseQuery!
+    
+    var query: Query!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,15 +22,20 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         
         
+
+        var db = Firestore.firestore()
+        query = db.collection("History").whereField("bike.owner", isEqualTo: "e.sal2019@gtu.edu.tr")
+            
         
-        ref = Database.database().reference()
-        query = ref.child("History").queryOrdered(byChild: "owner").queryEqual(toValue: Auth.auth().currentUser?.email)
-        
-        query.observe(.value, with: { (snapshot) in
-            for childSnapshot in snapshot.children {
-                print(childSnapshot)
-            }
-        })
+        query.getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    for document in querySnapshot!.documents {
+                        print("\(document.documentID) => \(document.data())")
+                    }
+                }
+        }
         
         
         
