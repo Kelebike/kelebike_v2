@@ -15,8 +15,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var gifView: UIImageView!
     
-    @IBOutlet weak var showHideIcon: UIButton!
-    
+    @IBOutlet weak var showHideIcon: UIButton!    
     
     var passwordVisible: Bool = true
     
@@ -56,7 +55,7 @@ class LoginViewController: UIViewController {
                 
                 if Auth.auth().currentUser == nil
                 {
-                    createAlert(title: "ERROR", message: "User not found!\nPlease sign up and try again.", goBack: false)
+                    createAlert(title: "ERROR", message: "User not found or wrong password!\nPlease sign up and try again.", goBack: false)
                 }
                 else {
                     performSegue(withIdentifier: "toHomepage", sender: nil)

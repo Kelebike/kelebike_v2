@@ -6,24 +6,45 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseDatabase
+import FirebaseFirestore
 
 class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     @IBOutlet weak var historyTableView: UITableView!
-    
+    var ref: DatabaseReference!
+    var query: DatabaseQuery!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
+        
+        
+        ref = Database.database().reference()
+        query = ref.child("History").queryOrdered(byChild: "owner").queryEqual(toValue: Auth.auth().currentUser?.email)
+        
+        query.observe(.value, with: { (snapshot) in
+            for childSnapshot in snapshot.children {
+                print(childSnapshot)
+            }
+        })
+        
+        
+        
+        
+        
     }
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // how many rows are on the table
-        return 10
+        return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // how to fill a new cell in the screen
         let cell = historyTableView.dequeueReusableCell(withIdentifier: "HistoryCell") as! HistoryTableViewCell
         
         cell.id.text = "Bike ID: " + String(indexPath.row)
