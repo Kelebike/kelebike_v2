@@ -1,11 +1,11 @@
-class Bike {
+class Bike: Decodable {
     
-    var code : Int
-    var lock : Int
     var brand : String
+    var code : Int
     var issuedDate : String
-    var returnDate : String
+    var lock : Int
     var owner : String
+    var returnDate : String
     var status : String
     
     init(code: Int, lock: Int, brand: String, issuedDate: String, returnDate: String, owner: String, status: String) {
@@ -17,6 +17,4 @@ class Bike {
         self.owner = owner
         self.status = status
     }
-    
-
 }

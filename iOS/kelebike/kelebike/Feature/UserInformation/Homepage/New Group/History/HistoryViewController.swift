@@ -21,20 +21,19 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         
         
-        
 
-        var db = Firestore.firestore()
-        query = db.collection("History").whereField("bike.owner", isEqualTo: "e.sal2019@gtu.edu.tr")
-            
+        let db = Firestore.firestore()
+        //query = db.collection("History").whereField("bike.owner", isEqualTo: (Auth.auth().currentUser?.email)!)
+        query = db.collection("Blacklist")
         
-        query.getDocuments() { (querySnapshot, err) in
-                if let err = err {
-                    print("Error getting documents: \(err)")
-                } else {
-                    for document in querySnapshot!.documents {
-                        print("\(document.documentID) => \(document.data())")
-                    }
-                }
+        
+        query.getDocuments { (snapshot, _) in
+            let documents = snapshot!.documents
+            
+            try! documents.forEach { document in
+                let h: Blacklist = try document.decoded()
+                print(h)
+            }
         }
         
         
