@@ -18,11 +18,6 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
-        
-
         var db = Firestore.firestore()
         query = db.collection("History").whereField("bike.owner", isEqualTo: "e.sal2019@gtu.edu.tr")
             

@@ -1,14 +1,14 @@
 class Bike {
     
-    var code : Int
-    var lock : Int
+    var code : String
+    var lock : String
     var brand : String
     var issuedDate : String
     var returnDate : String
     var owner : String
     var status : String
     
-    init(code: Int, lock: Int, brand: String, issuedDate: String, returnDate: String, owner: String, status: String) {
+    init(code: String, lock: String, brand: String, issuedDate: String, returnDate: String, owner: String, status: String) {
         self.code = code
         self.lock = lock
         self.brand = brand
