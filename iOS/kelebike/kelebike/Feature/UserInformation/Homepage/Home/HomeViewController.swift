@@ -53,7 +53,7 @@ class HomeViewController: UIViewController {
     @IBAction func putDataTapped(_ sender: Any) {
         Task { @MainActor in
             
-            let bike = Bike(code: 1265, lock: 0000, brand: "nontaken" ,issuedDate: "nontaken", returnDate: "nontaken", owner: "nontaken", status: "nontaken")
+            let bike = Bike(code: "1265", lock: "0000", brand: "nontaken" ,issuedDate: "nontaken", returnDate: "nontaken", owner: "nontaken", status: "nontaken")
             
             await addBike(bike: bike)
             
@@ -88,7 +88,7 @@ class HomeViewController: UIViewController {
                 var lock = bike?.first?.get("lock").map(String.init(describing:)) ?? "nil"
                 
                 
-                self.detailLabel.text = code
+                //self.detailLabel.text = code
                 
             }
             

@@ -1,6 +1,5 @@
-struct History : Decodable{
+struct History {
     
-    let bike: Bike
-    let createdAt: String
-    let id: String
+    var bike: Bike
+    var createdAt: String
 }

@@ -218,7 +218,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dIg-qI-7lC">
-                                <rect key="frame" x="132" y="303.5" width="150" height="34.5"/>
+                                <rect key="frame" x="132" y="303.5" width="150" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="Dof-47-ucQ"/>
                                     <constraint firstAttribute="height" constant="34.666666666666686" id="ydJ-AB-uB3"/>
@@ -525,7 +525,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="MMh-nM-0im">
-                                <rect key="frame" x="0.0" y="109" width="414" height="704"/>
+                                <rect key="frame" x="0.0" y="116" width="414" height="697"/>
                                 <color key="backgroundColor" red="0.78823529411764703" green="0.88627450980392153" blue="0.396078431372549" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="separatorColor" red="0.11372549019607843" green="0.28627450980392155" blue="0.65490196078431373" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
@@ -608,22 +608,47 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading Data..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UVK-2n-6IH">
+                                <rect key="frame" x="136" y="436" width="142" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JQW-aY-ccs">
+                                <rect key="frame" x="354" y="58" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="LdT-un-yNW"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" image="arrow.clockwise" catalog="system">
+                                    <color key="baseBackgroundColor" red="0.1137254902" green="0.28627450980000002" blue="0.65490196079999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="refreshButton:" destination="LYd-8Q-Fpm" eventType="touchUpInside" id="VeR-6Z-K22"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="VY8-Yy-vKu"/>
                         <color key="backgroundColor" red="0.8078432083" green="0.88627451660000001" blue="0.46666663889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="MMh-nM-0im" firstAttribute="bottom" secondItem="VY8-Yy-vKu" secondAttribute="bottom" id="HhA-Ec-Bap"/>
+                            <constraint firstItem="UVK-2n-6IH" firstAttribute="centerX" secondItem="1Gr-04-esP" secondAttribute="centerX" id="IEk-ZG-K4k"/>
+                            <constraint firstItem="JQW-aY-ccs" firstAttribute="centerY" secondItem="N07-F9-mHv" secondAttribute="centerY" id="KBB-UR-2E8"/>
                             <constraint firstItem="MMh-nM-0im" firstAttribute="leading" secondItem="1Gr-04-esP" secondAttribute="leading" id="aan-FM-e1E"/>
+                            <constraint firstItem="VY8-Yy-vKu" firstAttribute="trailing" secondItem="JQW-aY-ccs" secondAttribute="trailing" constant="10" id="fkZ-97-A1C"/>
                             <constraint firstItem="N07-F9-mHv" firstAttribute="top" secondItem="VY8-Yy-vKu" secondAttribute="top" constant="17" id="heX-Yc-ReI"/>
+                            <constraint firstItem="JQW-aY-ccs" firstAttribute="top" secondItem="VY8-Yy-vKu" secondAttribute="top" constant="10" id="hrY-RB-V0l"/>
                             <constraint firstItem="VY8-Yy-vKu" firstAttribute="trailing" secondItem="N07-F9-mHv" secondAttribute="trailing" constant="162" id="j3k-Ah-KQX"/>
                             <constraint firstAttribute="trailing" secondItem="MMh-nM-0im" secondAttribute="trailing" id="mV9-ky-Lqg"/>
-                            <constraint firstItem="MMh-nM-0im" firstAttribute="top" secondItem="N07-F9-mHv" secondAttribute="bottom" constant="8" symbolic="YES" id="sdj-CU-acP"/>
+                            <constraint firstItem="UVK-2n-6IH" firstAttribute="centerY" secondItem="1Gr-04-esP" secondAttribute="centerY" id="qVA-JR-rW3"/>
+                            <constraint firstItem="MMh-nM-0im" firstAttribute="top" secondItem="N07-F9-mHv" secondAttribute="bottom" constant="15" id="sdj-CU-acP"/>
                             <constraint firstItem="N07-F9-mHv" firstAttribute="leading" secondItem="1Gr-04-esP" secondAttribute="leadingMargin" id="zve-Fk-LgK"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="history" id="HEV-YG-xix"/>
                     <connections>
                         <outlet property="historyTableView" destination="MMh-nM-0im" id="ATM-gC-7zF"/>
+                        <outlet property="loadingText" destination="UVK-2n-6IH" id="Nie-Pu-kQz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vVw-VD-uX1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
