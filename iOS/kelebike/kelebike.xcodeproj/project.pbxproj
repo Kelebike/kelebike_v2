@@ -16,6 +16,7 @@
 		41BF7D0C293D1699008EA4D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41BF7D0B293D1699008EA4D1 /* LaunchScreen.storyboard */; };
 		41BF7D18293D234E008EA4D1 /* lunchCompany.png in Resources */ = {isa = PBXBuildFile; fileRef = 41BF7D17293D234D008EA4D1 /* lunchCompany.png */; };
 		41BF7D20293D2C16008EA4D1 /* lunchLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 41BF7D1F293D2C16008EA4D1 /* lunchLogo.png */; };
+		41F7342A294B64C400790476 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F73429294B64C400790476 /* History.swift */; };
 		B149AC3A29377065002F1D78 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B149AC3929377065002F1D78 /* HomeViewController.swift */; };
 		B15136DD293BE34B00B0642C /* Bike.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15136DC293BE34B00B0642C /* Bike.swift */; };
 		B15136E0293BFA3800B0642C /* BikeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15136DF293BFA3800B0642C /* BikeService.swift */; };
@@ -50,7 +51,6 @@
 		B16D810C290D228F009EE362 /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B16D810B290D228F009EE362 /* FirebaseRemoteConfigSwift */; };
 		B16D810E290D228F009EE362 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = B16D810D290D228F009EE362 /* FirebaseStorage */; };
 		B16D8110290D228F009EE362 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = B16D810F290D228F009EE362 /* FirebaseStorageCombine-Community */; };
-		B18D69DA2931FE2000CC66D2 /* HomepageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18D69D92931FE2000CC66D2 /* HomepageViewController.swift */; };
 		B1B213F2290D30CB00DCB832 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B213F1290D30CB00DCB832 /* LoginViewController.swift */; };
 		B1B213F4290D30DA00DCB832 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B213F3290D30DA00DCB832 /* SignUpViewController.swift */; };
 		B1B213F8290D3A4400DCB832 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B1B213F7290D3A4400DCB832 /* GoogleService-Info.plist */; };
@@ -70,6 +70,7 @@
 		41BF7D0B293D1699008EA4D1 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		41BF7D17293D234D008EA4D1 /* lunchCompany.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lunchCompany.png; sourceTree = "<group>"; };
 		41BF7D1F293D2C16008EA4D1 /* lunchLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lunchLogo.png; sourceTree = "<group>"; };
+		41F73429294B64C400790476 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		B149AC3929377065002F1D78 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B15136DC293BE34B00B0642C /* Bike.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bike.swift; sourceTree = "<group>"; };
 		B15136DF293BFA3800B0642C /* BikeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeService.swift; sourceTree = "<group>"; };
@@ -79,7 +80,6 @@
 		B16D80CD290D222A009EE362 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B16D80CF290D222A009EE362 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B16D80D4290D222A009EE362 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B18D69D92931FE2000CC66D2 /* HomepageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageViewController.swift; sourceTree = "<group>"; };
 		B1B213F1290D30CB00DCB832 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B1B213F3290D30DA00DCB832 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		B1B213F7290D3A4400DCB832 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -158,6 +158,7 @@
 		B15136DB293BE34300B0642C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				41F73429294B64C400790476 /* History.swift */,
 				B15136DC293BE34B00B0642C /* Bike.swift */,
 			);
 			path = Model;
@@ -219,7 +220,6 @@
 		B18D69D82931FDFC00CC66D2 /* Homepage */ = {
 			isa = PBXGroup;
 			children = (
-				B18D69D92931FE2000CC66D2 /* HomepageViewController.swift */,
 				B1BB3E4B293AB20B00E1CAC0 /* TabBarController.swift */,
 				B149AC3829377053002F1D78 /* Home */,
 				B1BB3E4D293AB35600E1CAC0 /* Profile */,
@@ -398,6 +398,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41F7342A294B64C400790476 /* History.swift in Sources */,
 				B1B213F2290D30CB00DCB832 /* LoginViewController.swift in Sources */,
 				4183AEDF293D59BB004EA606 /* LaunchViewController.swift in Sources */,
 				41853AF6293AF8B6006E2167 /* PageView.swift in Sources */,
@@ -406,7 +407,6 @@
 				B16D80C7290D222A009EE362 /* AppDelegate.swift in Sources */,
 				4183AEDD293D593F004EA606 /* HistoryViewController.swift in Sources */,
 				B1BB3E4F293AB36E00E1CAC0 /* ProfileViewController.swift in Sources */,
-				B18D69DA2931FE2000CC66D2 /* HomepageViewController.swift in Sources */,
 				412C82E12941698A0041CF74 /* HistoryTableViewCell.swift in Sources */,
 				B1BB3E4C293AB20B00E1CAC0 /* TabBarController.swift in Sources */,
 				B149AC3A29377065002F1D78 /* HomeViewController.swift in Sources */,

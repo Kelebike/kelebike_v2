@@ -1,11 +1,11 @@
 class Bike {
     
-    var code : String
-    var lock : String
     var brand : String
+    var code : String
     var issuedDate : String
-    var returnDate : String
+    var lock : String
     var owner : String
+    var returnDate : String
     var status : String
     
     init(code: String, lock: String, brand: String, issuedDate: String, returnDate: String, owner: String, status: String) {
@@ -18,5 +18,4 @@ class Bike {
         self.status = status
     }
     
-
 }
