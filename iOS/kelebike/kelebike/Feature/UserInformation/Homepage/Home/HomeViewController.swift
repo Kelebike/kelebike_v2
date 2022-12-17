@@ -37,6 +37,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(HomeViewController.counter), userInfo: nil, repeats: true)
         
     }
@@ -64,36 +65,8 @@ class HomeViewController: UIViewController {
     
     
     @IBAction func refreshTapped(_ sender: Any) {
-        let docRef = db.collection("Bike").whereField("status", isEqualTo: "nontaken")
-        docRef.getDocuments() { snapshot, error in
-            if let error = error {
-                print("Error getting collection size: \(error)")
-                return
-            }
-            DispatchQueue.main.async {
-                let count = snapshot?.documents.count
-                self.availableBikes.text = String(count ?? 0)
-            }
-        }
-        
-        let userRef = db.collection("Bike").whereField("owner", isEqualTo: Auth.auth().currentUser?.email ?? "nil" )
-        userRef.getDocuments() { snapshot, error in
-            if let error = error {
-                print("Error getting collection size: \(error)")
-                return
-            }
-            DispatchQueue.main.async {
-                let bike = snapshot?.documents
-                let code = bike?.first?.get("code").map(String.init(describing:)) ?? "nil"
-                var lock = bike?.first?.get("lock").map(String.init(describing:)) ?? "nil"
-                
-                
-                //self.detailLabel.text = code
-                
-            }
-            
-            
-        }
+ 
+     
         
     }
     
@@ -112,14 +85,36 @@ class HomeViewController: UIViewController {
     }
     
     func addBike(bike : Bike) async{
-        let docRef = db.document("Bike/" + String(bike.code))
-        if(await isItUnique(bike)){
-            do{
-                try await docRef.setData(["code": bike.code, "lock" : bike.lock, "brand" : bike.brand, "issuedDate" : bike.issuedDate, "returnDate" : bike.returnDate, "owner" : bike.owner, "status" : bike.status ])
-            } catch {
-                print ("Error about saving document to database...")
+        // Add a new document with a generated id.
+        var ref: DocumentReference? = nil
+        
+        if await isItUnique(bike) {
+            ref = db.collection("Bike").addDocument(data: ["code": bike.code, "lock" : bike.lock, "brand" : bike.brand, "issuedDate" : bike.issuedDate, "returnDate" : bike.returnDate, "owner" : bike.owner, "status" : bike.status ]) { err in
+                if let err = err {
+                    print("Error adding document: \(err)")
+                } else {
+                    print("Document added with ID: \(ref!.documentID)")
+                }
             }
         }
+        
+    }
+    
+    func getDataFrom(collection : String, field : String) -> String {
+        //read documents from spesific path
+        db.collection(collection).getDocuments { snapshot , error in
+            //no error
+            if error == nil {
+                if let snapshot = snapshot {
+                    //get all the documents
+                }
+            }
+            //handle the erro
+            else {
+                
+            }
+        }
+        return "Baygut"
     }
 
 }

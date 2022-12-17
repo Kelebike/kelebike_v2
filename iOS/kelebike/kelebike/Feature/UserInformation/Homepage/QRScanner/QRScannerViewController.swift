@@ -7,6 +7,9 @@
 
 import UIKit
 import AVFoundation
+import FirebaseFirestore
+import FirebaseAuth
+
 
 class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
@@ -16,6 +19,7 @@ class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsD
     
     
     var codeTapped : Bool = false
+    let db = Firestore.firestore()
     
     let session = AVCaptureSession()
     var previewLayer = AVCaptureVideoPreviewLayer()
@@ -57,15 +61,23 @@ class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsD
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         
         if let metadataObject = metadataObjects.first {
+            var message = ""
             guard let readbleObject = metadataObject as?
                     AVMetadataMachineReadableCodeObject else {return}
             
             print(readbleObject.stringValue!)
             session.stopRunning()
-            
-            QRScannedAlert(title: "QR Scanned", message: readbleObject.stringValue! + " is that correct?")
-            
-            
+            var id : String = ""
+            Task { @MainActor in
+                id = await getDocument(code: readbleObject.stringValue!)
+                print(id)
+                if id == "NOT_FOUND" {
+                    message = "Bike couldn't found."
+                } else {
+                    message = readbleObject.stringValue! + " is that correct?"
+                }
+                QRScannedAlert(title: "QR Scanned", message: message, id: id)
+            }
         }
         
     }
@@ -128,13 +140,15 @@ class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsD
         print(codeTextField.text ?? "0")
     }
     
-    func QRScannedAlert(title: String, message: String) {
+    func QRScannedAlert(title: String, message: String, id: String) {
         let dialogMessage = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
-        // Create OK button with action handler
-        let ok = UIAlertAction(title: "Yes", style: .default, handler: { (action) -> Void in
+        // Create YES button with action handler
+        let yes = UIAlertAction(title: "Yes", style: .default, handler: { (action) -> Void in
             print("Yes button tapped")
+            self.db.collection("Bike").document(id).updateData(["status" : "waiting", "owner" : Auth.auth().currentUser?.email])
             self.performSegue(withIdentifier: "toTabViewFromQR", sender: nil)
+            
             
          })
         
@@ -143,11 +157,25 @@ class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsD
             self.session.startRunning()
          })
         
-        //Add OK button to a dialog message
-        dialogMessage.addAction(ok)
+        //Add yes button to a dialog message
+        if message != "Bike couldn't found." {
+                dialogMessage.addAction(yes)
+        }
         dialogMessage.addAction(retake)
         // Present Alert to
         self.present(dialogMessage, animated: true, completion: nil)
+    }
+    
+    private func getDocument(code : String) async -> String {
+        var docID : String = "NOT_FOUND"
+        
+        do {
+          docID = try await db.collection("Bike").whereField("code", isEqualTo: code)
+                    .getDocuments().documents.first?.documentID ?? "NOT_FOUND"
+        } catch {
+                print("Error find the document")
+        }
+        return docID
     }
     
 }
