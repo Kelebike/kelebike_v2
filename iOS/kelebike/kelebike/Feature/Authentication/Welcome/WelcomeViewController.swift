@@ -93,12 +93,12 @@ class WelcomeViewController: UIViewController {
         let scrollView = UIScrollView()
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.isPagingEnabled = true
-        scrollView.contentSize = CGSize(width: view.frame.width * CGFloat(pages.count), height: view.frame.height)
+        scrollView.contentSize = CGSize(width: view.frame.width * CGFloat(pages.count), height: view.frame.height - 75)
         
         // add pages to the scroll view in a for loop
         for i in 0..<pages.count {
             scrollView.addSubview(pages[i])
-            pages[i].frame = CGRect(x: view.frame.width * CGFloat(i), y: 0, width: view.frame.width, height: view.frame.height)
+            pages[i].frame = CGRect(x: view.frame.width * CGFloat(i), y: 0, width: view.frame.width, height: view.frame.height - 75)
         }
         scrollView.delegate = self
         return scrollView
@@ -135,7 +135,7 @@ class WelcomeViewController: UIViewController {
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor)])
+            scrollView.bottomAnchor.constraint(equalTo: bottomControlStackView.topAnchor)])
         
         // constraints for the page control bar
         bottomControlStackView.translatesAutoresizingMaskIntoConstraints = false

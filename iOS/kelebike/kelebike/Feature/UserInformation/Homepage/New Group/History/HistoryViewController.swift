@@ -66,7 +66,6 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // how to fill a new cell in the screen
         let cell = historyTableView.dequeueReusableCell(withIdentifier: "HistoryCell") as! HistoryTableViewCell
-
         
         // fill top row
         cell.id.text = "Bike ID: \(self.historyArray[indexPath.row].bike.code)"
@@ -93,10 +92,8 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
             cell.duration.text = "Bike rented for \(days - issuedDay! + returnDay!) days"
         }
         
-        
-        // set cell height
+        // set cell curve
         cell.historyView.layer.cornerRadius = cell.historyView.frame.height / 4
-        
         
         return cell
     }

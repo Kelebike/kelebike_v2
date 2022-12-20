@@ -66,7 +66,7 @@ class PageView: UIView {
         // constraints for the image
         NSLayoutConstraint.activate([
             imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            imageView.topAnchor.constraint(equalTo: topAnchor, constant: 100),
+            imageView.topAnchor.constraint(equalTo: topAnchor, constant: 75),
             imageView.widthAnchor.constraint(equalToConstant: 300),
             imageView.heightAnchor.constraint(equalToConstant: 300)])
         
