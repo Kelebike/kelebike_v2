@@ -16,15 +16,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var historyArray: [History] = []
     var isHistoryEmpty: Bool?
     
+    var bikeCount: Int?
+    var rentedBike: Bike?
+    var isBikeRented: Bool?
+    var userStatus: Int?
+
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         
         self.isHistoryEmpty = false
-        if (Auth.auth().currentUser != nil) {
-            retrieveDataFromFirebase()
-        }
+        self.isBikeRented = false
         
+        if (Auth.auth().currentUser != nil) {
+            retrieveDataHistory()
+            retrieveDataHome()
+        }
+
         return true
     }
     
@@ -42,9 +51,75 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
     
+    func retrieveDataBikeCount() {
+        let db = Firestore.firestore()
+        let ref = db.collection("Bike").whereField("status", isEqualTo: "nontaken")
+        
+        ref.getDocuments { (querySnapshot, error) in
+            if let error = error {
+                print("Error getting documents: \(error)")
+            } else {
+                var bikeCount = 0
+                for _ in querySnapshot!.documents {
+                    bikeCount += 1
+                }
+                self.bikeCount = bikeCount
+            }
+        }
+    }
     
+    func retrieveDataHome () {
+        let db = Firestore.firestore()
+        let ref = db.collection("Bike").whereField("owner", isEqualTo: (Auth.auth().currentUser?.email)!)
+        
+        ref.getDocuments { (querySnapshot, error) in
+            if let error = error {
+                print("Error getting documents: \(error)")
+            } else {
+                var bikeCount = 0
+                for document in querySnapshot!.documents {
+                    bikeCount += 1
+                    
+                    // format issued date and return dates
+                    let cutIssuedDate = (document.data()["issued"] as! String).components(separatedBy: " ").first?.replacingOccurrences(of: "-", with: ".")
+                    let cutReturnDate = (document.data()["returnDate"] as! String).components(separatedBy: " ").first?.replacingOccurrences(of: "-", with: ".")
+                    
+                    // reverse the dates
+                    let finalIssuedDate = cutIssuedDate!.components(separatedBy: ".").map { $0 }.reduce("") { result, element in
+                        return element + "." + result
+                    }
+                    let finalReturnDate = cutReturnDate!.components(separatedBy: ".").map { $0 }.reduce("") { result, element in
+                        return element + "." + result
+                    }
+                    
+                    self.rentedBike = Bike(code: document.data()["code"] as! String,
+                                           lock: document.data()["lock"] as! String,
+                                           brand: document.data()["brand"] as! String,
+                                           issuedDate: String(finalIssuedDate.prefix(finalIssuedDate.count - 1)),
+                                           returnDate: String(finalReturnDate.prefix(finalReturnDate.count - 1)),
+                                           owner: document.data()["owner"] as! String,
+                                           status: document.data()["status"] as! String)
+                    
+                    self.isBikeRented = true
+                }
+                
+                if (bikeCount == 0){
+                    self.isBikeRented = false
+                    self.userStatus = 0
+                }
+                else {
+                    if(self.rentedBike?.status == "waiting"){
+                        self.userStatus = 1
+                    }
+                    else if(self.rentedBike?.status ==  "confirmed"){
+                        self.userStatus = 2
+                    }
+                }
+            }
+        }
+    }
     
-    func retrieveDataFromFirebase() {
+    func retrieveDataHistory() {
         let db = Firestore.firestore()
         let ref = db.collection("History").whereField("bike.owner", isEqualTo: (Auth.auth().currentUser?.email)!)
         
@@ -60,6 +135,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     // remove unnecesarry parts from the date
                     let cutIssuedDate = (dataBike["issued"] as! String).components(separatedBy: " ").first?.replacingOccurrences(of: "-", with: ".")
                     let cutReturnDate = (dataBike["returnDate"] as! String).components(separatedBy: " ").first?.replacingOccurrences(of: "-", with: ".")
+
                     
                     // reverse the date format
                     let finalIssuedDate = cutIssuedDate!.components(separatedBy: ".").map { $0 }.reduce("") { result, element in

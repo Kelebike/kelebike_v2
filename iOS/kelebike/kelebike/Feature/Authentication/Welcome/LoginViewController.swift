@@ -61,7 +61,7 @@ class LoginViewController: UIViewController {
                     performSegue(withIdentifier: "toHomepage", sender: nil)
                     
                     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                    appDelegate.retrieveDataFromFirebase()
+                    appDelegate.retrieveDataHistory()
                 }
                 
             }

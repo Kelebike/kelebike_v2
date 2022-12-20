@@ -25,37 +25,11 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.retrieveDataFromFirebase()
-        self.historyArray = appDelegate.historyArray
-        self.isHistoryEmpty = appDelegate.isHistoryEmpty
-        
-        if (self.isHistoryEmpty!) {
-            loadingText.text = "There is no history"
-            loadingText.isHidden = false
-        }
-        else if(self.historyArray.count != 0){
-            loadingText.isHidden = true
-        }
-        
-        historyTableView.reloadData()
+        loadData()
     }
     
     @IBAction func refreshButton(_ sender: Any) {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.retrieveDataFromFirebase()
-        self.historyArray = appDelegate.historyArray
-        self.isHistoryEmpty = appDelegate.isHistoryEmpty
-        
-        if (self.isHistoryEmpty!) {
-            loadingText.text = "There is no history"
-            loadingText.isHidden = false
-        }
-        else if(self.historyArray.count != 0){
-            loadingText.isHidden = true
-        }
-        
-        historyTableView.reloadData()
+        loadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -114,5 +88,22 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         let date = calendar.date(from: dateComponents)!
         let range = calendar.range(of: .day, in: .month, for: date)!
         return range.count
+    }
+    
+    func loadData() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.retrieveDataHistory()
+        self.historyArray = appDelegate.historyArray
+        self.isHistoryEmpty = appDelegate.isHistoryEmpty
+        
+        if (self.isHistoryEmpty!) {
+            loadingText.text = "There is no history"
+            loadingText.isHidden = false
+        }
+        else if(self.historyArray.count != 0){
+            loadingText.isHidden = true
+        }
+        
+        historyTableView.reloadData()
     }
 }

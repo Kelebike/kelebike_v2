@@ -51,7 +51,6 @@ class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsD
         self.view.bringSubviewToFront(imageView)
         
         session.startRunning()
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
