@@ -279,9 +279,7 @@
                                     <color key="baseBackgroundColor" red="0.1137254902" green="0.28627450980000002" blue="0.65490196079999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="f9f-pr-sjd" kind="popoverPresentation" popoverAnchorView="0CE-ZZ-1bn" id="og5-nO-I5s">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
+                                    <action selector="takeReturnBikeTapped:" destination="dzF-5I-y2G" eventType="touchUpInside" id="qwj-j2-aAM"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WTZ-n8-2Xu">
@@ -410,6 +408,7 @@
                         <outlet property="qrButton" destination="0CE-ZZ-1bn" id="HCh-5I-EfO"/>
                         <outlet property="timerHeader" destination="o13-U4-K4j" id="d0t-Xe-00H"/>
                         <outlet property="timerLabel" destination="iZS-t2-aIt" id="JFU-3b-T2b"/>
+                        <segue destination="f9f-pr-sjd" kind="presentation" identifier="toQRScanner" id="yAu-ea-xIE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rXw-Wz-2gU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -867,7 +866,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="og5-nO-I5s"/>
+        <segue reference="yAu-ea-xIE"/>
         <segue reference="9CV-Se-i8k"/>
         <segue reference="5xf-Bb-Cs8"/>
     </inferredMetricsTieBreakers>

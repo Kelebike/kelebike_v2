@@ -108,7 +108,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     self.userStatus = 0
                 }
                 else {
-                    if(self.rentedBike?.status == "waiting"){
+                    if(self.rentedBike?.status == "waiting" || self.rentedBike?.status == "returned"){
                         self.userStatus = 1
                     }
                     else if(self.rentedBike?.status ==  "taken"){

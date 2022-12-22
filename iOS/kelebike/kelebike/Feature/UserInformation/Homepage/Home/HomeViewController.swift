@@ -15,6 +15,8 @@ import FirebaseDatabase
 
 class HomeViewController: UIViewController {
 
+    
+    let db = Firestore.firestore()
     var bikeCount: Int?
     var rentedBike: Bike?
     var isBikeRented: Bool?
@@ -38,7 +40,6 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         bikeCount = 0
         isBikeRented = false
         userStatus = 0
@@ -52,6 +53,24 @@ class HomeViewController: UIViewController {
 
     @IBAction func refreshTapped(_ sender: Any) {
         loadData()
+    }
+    
+    
+    
+    @IBAction func takeReturnBikeTapped(_ sender: Any) {
+        if(userStatus == 0) {
+            self.performSegue(withIdentifier: "toQRScanner", sender: nil)
+        }
+        else if (userStatus == 2) {
+            Task { @MainActor in
+                var id = await getDocument(code: rentedBike!.code)
+                returnAlert(title: "Return", message: "Do you want to return bike?", id : id)
+                loadData()
+            }
+            
+            
+            
+        }
     }
     
     func loadData() {
@@ -139,5 +158,44 @@ class HomeViewController: UIViewController {
         let range = calendar.range(of: .day, in: .month, for: date)!
         return range.count
     }
+    
+    // Create new Alert
+    func returnAlert(title: String, message: String, id : String) {
+        let dialogMessage = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+
+            let yes = UIAlertAction(title: "Yes", style: .default, handler: { (action) -> Void in
+                print("yes button tapped")
+                self.db.collection("Bike").document(id).updateData(["status" : "returned", "owner" : Auth.auth().currentUser?.email])
+        })
+            
+        
+        // Create OK button with action handler
+        let no = UIAlertAction(title: "No", style: .default, handler: { (action) -> Void in
+            print("no button tapped")
+            
+         })
+        
+        //Add OK button to a dialog message
+        dialogMessage.addAction(yes)
+        dialogMessage.addAction(no)
+
+        // Present Alert to
+        self.present(dialogMessage, animated: true, completion: nil)
+    }
+    
+    private func getDocument(code : String) async -> String {
+        var docID : String = "NOT_FOUND"
+        
+        do {
+            docID = try await self.db.collection("Bike").whereField("code", isEqualTo: code)
+                    .getDocuments().documents.first?.documentID ?? "NOT_FOUND"
+        } catch {
+                print("Error find the document")
+        }
+        return docID
+    }
+    
+    
 
 }
