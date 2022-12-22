@@ -82,7 +82,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     
                     // format issued date and return dates
                     let cutIssuedDate = (document.data()["issued"] as! String).components(separatedBy: " ").first?.replacingOccurrences(of: "-", with: ".")
-                    let cutReturnDate = (document.data()["returnDate"] as! String).components(separatedBy: " ").first?.replacingOccurrences(of: "-", with: ".")
+                    let cutReturnDate = (document.data()["return"] as! String).components(separatedBy: " ").first?.replacingOccurrences(of: "-", with: ".")
                     
                     // reverse the dates
                     let finalIssuedDate = cutIssuedDate!.components(separatedBy: ".").map { $0 }.reduce("") { result, element in
@@ -111,7 +111,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     if(self.rentedBike?.status == "waiting"){
                         self.userStatus = 1
                     }
-                    else if(self.rentedBike?.status ==  "confirmed"){
+                    else if(self.rentedBike?.status ==  "taken"){
                         self.userStatus = 2
                     }
                 }
@@ -134,7 +134,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     
                     // remove unnecesarry parts from the date
                     let cutIssuedDate = (dataBike["issued"] as! String).components(separatedBy: " ").first?.replacingOccurrences(of: "-", with: ".")
-                    let cutReturnDate = (dataBike["returnDate"] as! String).components(separatedBy: " ").first?.replacingOccurrences(of: "-", with: ".")
+                    let cutReturnDate = (dataBike["return"] as! String).components(separatedBy: " ").first?.replacingOccurrences(of: "-", with: ".")
 
                     
                     // reverse the date format
