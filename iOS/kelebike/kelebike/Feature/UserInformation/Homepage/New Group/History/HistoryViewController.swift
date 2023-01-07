@@ -101,6 +101,15 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
             loadingText.isHidden = false
         }
         else if(self.historyArray.count != 0){
+            self.historyArray = self.historyArray.sorted(by: { (history1, history2) -> Bool in
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "dd-MM-yyyy"
+                
+                let date1 = dateFormatter.date(from: history1.bike.issuedDate)
+                let date2 = dateFormatter.date(from: history2.bike.issuedDate)
+                
+                return date1! > date2!
+            })
             loadingText.isHidden = true
         }
         

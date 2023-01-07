@@ -63,7 +63,7 @@ class HomeViewController: UIViewController {
         }
         else if (userStatus == 2) {
             Task { @MainActor in
-                var id = await getDocument(code: rentedBike!.code)
+                let id = await getDocument(code: rentedBike!.code)
                 returnAlert(title: "Return", message: "Do you want to return bike?", id : id)
                 loadData()
             }

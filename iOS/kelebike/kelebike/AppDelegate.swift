@@ -128,6 +128,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print("Error getting documents: \(error)")
             } else {
                 var historyCount = 0
+                self.historyArray.removeAll()
+                
                 for document in querySnapshot!.documents {
                     historyCount += 1
                     let dataBike = document.data()["bike"] as! [String: Any]
@@ -160,18 +162,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     let bike = Bike(code: code, lock: lock, brand: brand, issuedDate: String(issuedDate), returnDate: String(returnDate), owner: owner, status: status)
                     let history = History(bike: bike, createdAt: formatedCreatedDate)
                     
+                    var unique_flag = true
                     for h in self.historyArray {
                         if (h.createdAt == history.createdAt){
-                            return
+                            unique_flag = false
                         }
                     }
                     
-                    self.historyArray.append(history)
-                    self.isHistoryEmpty = false
+                    if unique_flag {
+                        self.historyArray.append(history)
+                        self.isHistoryEmpty = false
+                    }
                 }
                 if (historyCount == 0) {
                     self.isHistoryEmpty = true
-                    self.historyArray.removeAll()
                 }
             }
         }
