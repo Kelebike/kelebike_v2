@@ -41,9 +41,15 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var infoLabel: UILabel!
     
     
+    @IBOutlet weak var refresh: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         isBikeRented = false
+        
+        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+            self.refresh.sendActions(for: .touchUpInside)
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -67,15 +73,20 @@ class HomeViewController: UIViewController {
             else if (await isThereWaitingRequest(Auth.auth().currentUser!.email!)){
                 customAlert(title: "Error", message: "You already have a request please try again later.")
             }
+            else if (await doYouHaveBike(Auth.auth().currentUser!.email!)){
+                if(qrButton.titleLabel?.text == " Take a bike" ) {
+                    customAlert(title: "Error", message: "You already have a bike. First you need is return it.")
+                }
+                else {
+                    Task { @MainActor in
+                        let id = await getDocument(code: rentedBike!.code)
+                        returnAlert(title: "Return", message: "Do you want to return bike?", id : id)
+                        loadData()
+                    }
+                }
+            }
             else if(userStatus == 0) {
                 self.performSegue(withIdentifier: "toQRScanner", sender: nil)
-            }
-            else if (userStatus == 2) {
-                Task { @MainActor in
-                    let id = await getDocument(code: rentedBike!.code)
-                    returnAlert(title: "Return", message: "Do you want to return bike?", id : id)
-                    loadData()
-                }
             }
         }
     }
@@ -105,6 +116,19 @@ class HomeViewController: UIViewController {
         
         return !smth;
     }
+    
+    func doYouHaveBike(_ email: String) async -> Bool {
+        let collectionRef = db.collection("Bike/")
+        var smth = false
+        do {
+            smth = try await collectionRef.whereField("owner", isEqualTo: email).whereField("status", isEqualTo: "taken").getDocuments().isEmpty
+        } catch {
+            print("Error about documents")
+        }
+        
+        return !smth;
+    }
+    
     
     //checks blacklisted user
     func blacklistReason(_ email: String) async -> String {
@@ -173,6 +197,7 @@ class HomeViewController: UIViewController {
             infoLabel.text = ""
             
             qrButton.setTitle(" Return bike", for: .normal)
+            qrButton.setImage(UIImage(named: "return_arrow"), for: .normal)
         }
         // user has a rented bike
         else if(userStatus == 2){
@@ -185,6 +210,7 @@ class HomeViewController: UIViewController {
             infoLabel.text = ""
             
             qrButton.setTitle(" Return bike", for: .normal)
+            qrButton.setImage(UIImage(named: "return_arrow"), for: .normal)
         }
         
         // update avaliable bike count

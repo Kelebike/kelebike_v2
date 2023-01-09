@@ -13,13 +13,18 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var historyTableView: UITableView!
     @IBOutlet weak var loadingText: UILabel!
     
+    @IBOutlet weak var refresh: UIButton!
     var historyArray: [History] = []
     var isHistoryEmpty: Bool?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.isHistoryEmpty = false           
+        self.isHistoryEmpty = false
+        
+        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+            self.refresh.sendActions(for: .touchUpInside)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
