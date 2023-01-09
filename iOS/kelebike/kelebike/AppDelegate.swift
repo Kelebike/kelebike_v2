@@ -16,10 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var historyArray: [History] = []
     var isHistoryEmpty: Bool?
     
-    var bikeCount: Int?
+    var bikeCount: String = "Loading..."
     var rentedBike: Bike?
     var isBikeRented: Bool?
-    var userStatus: Int?
+    var userStatus: Int = 0
 
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -63,7 +63,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 for _ in querySnapshot!.documents {
                     bikeCount += 1
                 }
-                self.bikeCount = bikeCount
+                self.bikeCount = String(bikeCount)
             }
         }
     }

@@ -361,6 +361,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KvT-am-BSB">
+                                <rect key="frame" x="207" y="538" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mvq-pl-KxL"/>
                         <color key="backgroundColor" red="0.8078432083" green="0.88627451660000001" blue="0.46666663889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -378,6 +384,7 @@
                             <constraint firstItem="8gh-ms-nd0" firstAttribute="leading" secondItem="ybl-DW-TVq" secondAttribute="leading" id="Kmg-wq-8fS"/>
                             <constraint firstItem="o13-U4-K4j" firstAttribute="top" secondItem="8gh-ms-nd0" secondAttribute="bottom" constant="12" id="QX5-za-0e8"/>
                             <constraint firstItem="MmS-HT-1Nk" firstAttribute="leading" secondItem="6Yi-G5-w6j" secondAttribute="leading" id="Qau-F5-bnb"/>
+                            <constraint firstItem="KvT-am-BSB" firstAttribute="top" secondItem="iZS-t2-aIt" secondAttribute="top" constant="5" id="Qtp-ja-NIw"/>
                             <constraint firstItem="ygY-uk-bu5" firstAttribute="leading" secondItem="qj9-BC-HtI" secondAttribute="leadingMargin" id="Sse-2p-CTa"/>
                             <constraint firstItem="ygY-uk-bu5" firstAttribute="top" secondItem="mvq-pl-KxL" secondAttribute="top" constant="17" id="TZW-1p-3D5"/>
                             <constraint firstItem="ygY-uk-bu5" firstAttribute="centerY" secondItem="WTZ-n8-2Xu" secondAttribute="centerY" id="Wcj-EG-9k8"/>
@@ -388,6 +395,7 @@
                             <constraint firstItem="6Yi-G5-w6j" firstAttribute="top" secondItem="MmS-HT-1Nk" secondAttribute="bottom" constant="8" id="esb-XH-MUb"/>
                             <constraint firstItem="iZS-t2-aIt" firstAttribute="leading" secondItem="o13-U4-K4j" secondAttribute="trailing" constant="10" id="fis-tj-dBV"/>
                             <constraint firstItem="MmS-HT-1Nk" firstAttribute="leading" secondItem="mvq-pl-KxL" secondAttribute="leading" id="g85-K2-SSO"/>
+                            <constraint firstItem="KvT-am-BSB" firstAttribute="centerX" secondItem="qj9-BC-HtI" secondAttribute="centerX" id="hLg-Gg-358"/>
                             <constraint firstItem="mf2-Vf-W4E" firstAttribute="leading" secondItem="ybl-DW-TVq" secondAttribute="trailing" constant="20" id="iol-Iy-RQE"/>
                             <constraint firstItem="WTZ-n8-2Xu" firstAttribute="top" secondItem="mvq-pl-KxL" secondAttribute="top" constant="10" id="jVH-ID-ulr"/>
                             <constraint firstItem="8gh-ms-nd0" firstAttribute="centerY" secondItem="VuI-Ya-BxS" secondAttribute="centerY" id="mJd-Rh-Elt"/>
@@ -403,6 +411,7 @@
                         <outlet property="availableBikes" destination="agP-gV-gsW" id="awG-gV-Dox"/>
                         <outlet property="codeHeader" destination="ybl-DW-TVq" id="LwW-sI-SpV"/>
                         <outlet property="codeLabel" destination="mf2-Vf-W4E" id="kAZ-x6-0az"/>
+                        <outlet property="infoLabel" destination="KvT-am-BSB" id="u5i-lU-Axp"/>
                         <outlet property="lockHeader" destination="8gh-ms-nd0" id="KjO-Nv-k01"/>
                         <outlet property="lockLabel" destination="VuI-Ya-BxS" id="tkB-d4-90I"/>
                         <outlet property="qrButton" destination="0CE-ZZ-1bn" id="HCh-5I-EfO"/>
@@ -866,7 +875,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="yAu-ea-xIE"/>
         <segue reference="9CV-Se-i8k"/>
         <segue reference="5xf-Bb-Cs8"/>
     </inferredMetricsTieBreakers>

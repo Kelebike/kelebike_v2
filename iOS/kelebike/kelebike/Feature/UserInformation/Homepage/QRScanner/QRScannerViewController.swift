@@ -75,7 +75,7 @@ class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsD
                 } else {
                     message = readbleObject.stringValue! + " is that correct?"
                 }
-                QRScannedAlert(title: "QR Scanned", message: message, id: id)
+                QRScannedAlert(title: "QR Scanned", message: message, id: id, flag: false)
             }
         }
         
@@ -136,23 +136,39 @@ class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsD
     
     
     @IBAction func returntapped(_ sender: Any) {
+        var message = ""
+        var id = ""
+        
+        Task { @MainActor in
+            id = await getDocument(code: codeTextField.text ?? "0")
+            print(id)
+            if id == "NOT_FOUND" {
+                message = "Bike couldn't found."
+            } else {
+                message = "\(codeTextField.text ?? "0") is that correct?"
+            }
+            QRScannedAlert(title: "Code Entered", message: message, id: id, flag: true)
+        }
+        
         print(codeTextField.text ?? "0")
     }
     
-    func QRScannedAlert(title: String, message: String, id: String) {
+    func QRScannedAlert(title: String, message: String, id: String, flag: Bool) {
         let dialogMessage = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
         // Create YES button with action handler
         let yes = UIAlertAction(title: "Yes", style: .default, handler: { (action) -> Void in
-            print("Yes button tapped")
-            self.db.collection("Bike").document(id).updateData(["status" : "waiting", "owner" : Auth.auth().currentUser?.email])
-            self.performSegue(withIdentifier: "toTabViewFromQR", sender: nil)
             
-            
+            self.yesPressed(id: id)
          })
         
-        let retake = UIAlertAction(title: "Retake", style: .default, handler: { (action) -> Void in
-            print("Retake button tapped")
+        var word = "Retake"
+        if flag {
+            word = "Re-enter"
+        }
+        
+        let retake = UIAlertAction(title: word, style: .default, handler: { (action) -> Void in
+            print("re-enter or retake button tapped")
             self.session.startRunning()
          })
         
@@ -163,6 +179,60 @@ class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsD
         dialogMessage.addAction(retake)
         // Present Alert to
         self.present(dialogMessage, animated: true, completion: nil)
+    }
+    
+    func bikeCodeAlert(id: String, lock: String,title: String, message: String){
+        let dialogMessage = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .default, handler: { (action) -> Void in
+            print("cancel button tapped")
+         })
+        
+        
+        dialogMessage.addTextField { (textField) in
+            textField.placeholder = "Text here"
+        }
+
+        let submitAction = UIAlertAction(title: "Submit", style: .default) { [unowned dialogMessage] _ in
+            let answer = dialogMessage.textFields![0]
+            if (answer.text! == lock) {
+                self.db.collection("Bike").document(id).updateData(["owner" : (Auth.auth().currentUser?.email)!])
+                self.performSegue(withIdentifier: "toTabViewFromQR", sender: nil)
+            }
+            else {
+                self.bikeCodeAlert(id: id, lock: lock, title: "Bike Lock Wrong", message: "")
+            }
+        }
+        
+        dialogMessage.addAction(submitAction)
+        dialogMessage.addAction(cancel)
+        // Present Alert to
+        
+        self.present(dialogMessage, animated: true, completion: nil)
+    }
+    
+    func yesPressed(id: String) {
+        self.db.collection("Bike").getDocuments { (querySnapshot, error) in
+            if let error = error {
+                print("Error getting documents: \(error)")
+            } else {
+                for document in querySnapshot!.documents {
+                    if (document.documentID == id) {
+                        let owner = (document.data()["owner"] as? String)!
+                        let lock = (document.data()["lock"] as? String)!
+                        
+                        if(owner == "nontaken"){
+                            print("Yes button tapped")
+                            self.db.collection("Bike").document(id).updateData(["status" : "waiting", "owner" : (Auth.auth().currentUser?.email)!])
+                            self.performSegue(withIdentifier: "toTabViewFromQR", sender: nil)
+                        }
+                        else {
+                            self.bikeCodeAlert(id: id, lock: lock, title: "Bike Has Owner", message: "Enter the the bike lock combination to transfer ownership")
+                        }
+                    }
+                }
+            }
+        }
     }
     
     private func getDocument(code : String) async -> String {

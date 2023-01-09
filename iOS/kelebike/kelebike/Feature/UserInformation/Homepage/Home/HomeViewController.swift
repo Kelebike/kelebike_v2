@@ -17,7 +17,7 @@ class HomeViewController: UIViewController {
 
     
     let db = Firestore.firestore()
-    var bikeCount: Int?
+    var bikeCount: String?
     var rentedBike: Bike?
     var isBikeRented: Bool?
     
@@ -38,11 +38,12 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var timerLabel: UILabel!
     
     
+    @IBOutlet weak var infoLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        bikeCount = 0
         isBikeRented = false
-        userStatus = 0
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -84,15 +85,15 @@ class HomeViewController: UIViewController {
         appDelegate.retrieveDataBikeCount()
         self.bikeCount = appDelegate.bikeCount
 
-        
         // update home page acording to loaded data
         if(userStatus == 0){
             codeHeader.text = " "
             codeLabel.text = ""
             lockHeader.text = ""
             lockLabel.text = ""
-            timerHeader.text = "Go rent a bike and enjoy the school"
+            timerHeader.text = ""
             timerLabel.text = ""
+            infoLabel.text = "Go rent a bike and enjoy the school"
             
             qrButton.setTitle(" Take a bike", for: .normal)
         }
@@ -104,6 +105,7 @@ class HomeViewController: UIViewController {
             lockLabel.text = "Waiting"
             timerHeader.text = "Initiation date:"
             timerLabel.text = rentedBike?.issuedDate
+            infoLabel.text = ""
             
             qrButton.setTitle(" Return bike", for: .normal)
         }
@@ -115,12 +117,13 @@ class HomeViewController: UIViewController {
             lockLabel.text = rentedBike?.lock
             timerHeader.text = "Remaining Time:"
             timerLabel.text = calculateRemainingTime()
+            infoLabel.text = ""
             
             qrButton.setTitle(" Return bike", for: .normal)
         }
         
         // update avaliable bike count
-        availableBikes.text = String(self.bikeCount ?? 000)
+        availableBikes.text = self.bikeCount!
     }
     
     func calculateRemainingTime() -> String {
