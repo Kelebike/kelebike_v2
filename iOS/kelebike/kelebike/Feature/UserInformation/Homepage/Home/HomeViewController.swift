@@ -59,20 +59,76 @@ class HomeViewController: UIViewController {
     
     
     @IBAction func takeReturnBikeTapped(_ sender: Any) {
-        if(userStatus == 0) {
-            self.performSegue(withIdentifier: "toQRScanner", sender: nil)
-        }
-        else if (userStatus == 2) {
-            Task { @MainActor in
-                let id = await getDocument(code: rentedBike!.code)
-                returnAlert(title: "Return", message: "Do you want to return bike?", id : id)
-                loadData()
+        Task { @MainActor in
+            if(await isItBlacklisted(Auth.auth().currentUser!.email!)) {
+                let reason = await blacklistReason(Auth.auth().currentUser!.email!)
+                customAlert(title: "You are in the Blacklist", message: reason)
             }
-            
-            
-            
+            else if (await isThereWaitingRequest(Auth.auth().currentUser!.email!)){
+                customAlert(title: "Error", message: "You already have a request please try again later.")
+            }
+            else if(userStatus == 0) {
+                self.performSegue(withIdentifier: "toQRScanner", sender: nil)
+            }
+            else if (userStatus == 2) {
+                Task { @MainActor in
+                    let id = await getDocument(code: rentedBike!.code)
+                    returnAlert(title: "Return", message: "Do you want to return bike?", id : id)
+                    loadData()
+                }
+            }
         }
     }
+    
+    
+    //checks blacklisted user
+    func isItBlacklisted(_ email: String) async -> Bool {
+        let collectionRef = db.collection("Blacklist/")
+        var smth = false
+        do {
+            smth = try await collectionRef.whereField("user", isEqualTo: email).getDocuments().isEmpty
+        } catch {
+            print("Error about documents")
+        }
+        
+        return !smth;
+    }
+    
+    func isThereWaitingRequest(_ email: String) async -> Bool {
+        let collectionRef = db.collection("Bike/")
+        var smth = false
+        do {
+            smth = try await collectionRef.whereField("owner", isEqualTo: email).whereField("status", isEqualTo: "waiting").getDocuments().isEmpty
+        } catch {
+            print("Error about documents")
+        }
+        
+        return !smth;
+    }
+    
+    //checks blacklisted user
+    func blacklistReason(_ email: String) async -> String {
+        var docID = "NOT_FOUND"
+        var reason = "NOT"
+        let collectionRef = db.collection("Blacklist/")
+        do {
+            docID = try await collectionRef.whereField("user", isEqualTo: email).getDocuments().documents.first?.documentID ?? "NOT_FOUND"
+        } catch {
+            print("Error about documents")
+        }
+        
+        do {
+            print(docID)
+            reason = try await db.collection("Blaklist/").document(docID).getDocument().get("reason") as? String ?? "default"
+        } catch {
+            print("error")
+        }
+        
+        
+        return reason;
+    }
+    
+    
     
     func loadData() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -161,6 +217,20 @@ class HomeViewController: UIViewController {
         let range = calendar.range(of: .day, in: .month, for: date)!
         return range.count
     }
+    
+    //create custom alert
+    func customAlert(title: String, message: String) {
+        let dialogMessage = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "Ok", style: .default, handler: { (action) -> Void in
+            print("ok button tapped")
+            
+         })
+        dialogMessage.addAction(ok)
+        self.present(dialogMessage, animated: true, completion: nil)
+        
+    }
+    
+    
     
     // Create new Alert
     func returnAlert(title: String, message: String, id : String) {

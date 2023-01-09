@@ -3,4 +3,99 @@
    uuid = "0E3D343A-1339-4AB2-80CD-0FBEA4DAEBB3"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E7075B3E-A41E-4D90-839F-9F0193EFF892"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "kelebike/Feature/UserInformation/Homepage/Home/HomeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
+            landmarkName = "blacklistReason(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E7075B3E-A41E-4D90-839F-9F0193EFF892 - 934e10d5c7b09886"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for kelebike.HomeViewController.blacklistReason(Swift.String) async -&gt; Swift.String"
+                  moduleName = "kelebike"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/berkaybaygut/Desktop/Workspace/GitHub/kelebike_v2/iOS/kelebike/kelebike/Feature/UserInformation/Homepage/Home/HomeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "122"
+                  endingLineNumber = "122"
+                  offsetFromSymbolStart = "844">
+               </Location>
+               <Location
+                  uuid = "E7075B3E-A41E-4D90-839F-9F0193EFF892 - 902b5e390daef69f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) await resume partial function for kelebike.HomeViewController.blacklistReason(Swift.String) async -&gt; Swift.String"
+                  moduleName = "kelebike"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/berkaybaygut/Desktop/Workspace/GitHub/kelebike_v2/iOS/kelebike/kelebike/Feature/UserInformation/Homepage/Home/HomeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "122"
+                  endingLineNumber = "122"
+                  offsetFromSymbolStart = "52">
+               </Location>
+               <Location
+                  uuid = "E7075B3E-A41E-4D90-839F-9F0193EFF892 - c9501f54a29b6484"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(5) suspend resume partial function for kelebike.HomeViewController.blacklistReason(Swift.String) async -&gt; Swift.String"
+                  moduleName = "kelebike"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/berkaybaygut/Desktop/Workspace/GitHub/kelebike_v2/iOS/kelebike/kelebike/Feature/UserInformation/Homepage/Home/HomeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "122"
+                  endingLineNumber = "122"
+                  offsetFromSymbolStart = "100">
+               </Location>
+               <Location
+                  uuid = "E7075B3E-A41E-4D90-839F-9F0193EFF892 - ec5ce797cf6e8285"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(6) suspend resume partial function for kelebike.HomeViewController.blacklistReason(Swift.String) async -&gt; Swift.String"
+                  moduleName = "kelebike"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/berkaybaygut/Desktop/Workspace/GitHub/kelebike_v2/iOS/kelebike/kelebike/Feature/UserInformation/Homepage/Home/HomeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "122"
+                  endingLineNumber = "122"
+                  offsetFromSymbolStart = "560">
+               </Location>
+               <Location
+                  uuid = "E7075B3E-A41E-4D90-839F-9F0193EFF892 - f59efd71dc2208a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(7) suspend resume partial function for kelebike.HomeViewController.blacklistReason(Swift.String) async -&gt; Swift.String"
+                  moduleName = "kelebike"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/berkaybaygut/Desktop/Workspace/GitHub/kelebike_v2/iOS/kelebike/kelebike/Feature/UserInformation/Homepage/Home/HomeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "122"
+                  endingLineNumber = "122"
+                  offsetFromSymbolStart = "88">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
