@@ -223,7 +223,7 @@ class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsD
                         
                         if(owner == "nontaken"){
                             print("Yes button tapped")
-                            self.db.collection("Bike").document(id).updateData(["status" : "waiting", "owner" : (Auth.auth().currentUser?.email)!])
+                            self.db.collection("Bike").document(id).updateData(["status" : "waiting", "issued": "pending", "owner" : (Auth.auth().currentUser?.email)!])
                             self.performSegue(withIdentifier: "toTabViewFromQR", sender: nil)
                         }
                         else {
