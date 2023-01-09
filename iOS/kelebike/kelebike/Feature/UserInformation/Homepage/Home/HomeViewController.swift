@@ -62,7 +62,7 @@ class HomeViewController: UIViewController {
         Task { @MainActor in
             if(await isItBlacklisted(Auth.auth().currentUser!.email!)) {
                 let reason = await blacklistReason(Auth.auth().currentUser!.email!)
-                customAlert(title: "You are in the Blacklist", message: reason)
+                //customAlert(title: "You are in the Blacklist", message: reason)
             }
             else if (await isThereWaitingRequest(Auth.auth().currentUser!.email!)){
                 customAlert(title: "Error", message: "You already have a request please try again later.")
@@ -116,16 +116,25 @@ class HomeViewController: UIViewController {
         } catch {
             print("Error about documents")
         }
-        
-        do {
-            print(docID)
-            reason = try await db.collection("Blaklist/").document(docID).getDocument().get("reason") as? String ?? "default"
-        } catch {
+        print(docID)
+        var docRef =  db.collection("Blacklist/").document(docID)
+        docRef.getDocument { document, error in
+            if let error = error as NSError? {
             print("error")
-        }
+            }
+            else {
+              if let document = document {
+                print(reason)
+                let id = document.documentID
+                let data = document.data()
+                reason = data?["reason"] as? String ?? ""
+                  self.customAlert(title: "You are in the Blacklist", message: "Reason : " + reason)
+              }
+            }
+          }
         
+        return reason
         
-        return reason;
     }
     
     
